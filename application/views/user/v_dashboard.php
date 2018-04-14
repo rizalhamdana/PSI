@@ -30,7 +30,7 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href=""><span class="glyphicon glyphicon-user"></span></a></li>
-				<li><a href=""><span class="glyphicon glyphicon-log-in"></span></a></li>
+				<li><a href="<?= base_url('C_Users/logout');?>"><span class="glyphicon glyphicon-log-in"></span></a></li>
 			</ul>
 		</div>
 	</nav>

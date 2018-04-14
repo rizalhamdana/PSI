@@ -20,6 +20,11 @@ class M_Users extends CI_Model
 		}else{
 			return false;
 		}
+	}
+	public function logout(){
+		$data=['username'=>null, 'id_pengguna'=>null, 'login'=>null, 'nama_pengguna'=>null,'status_pengguna'=>null];
+			$this->session->unset_userdata($data);
+			$this->session->sess_destroy();
 	}	
 
 }

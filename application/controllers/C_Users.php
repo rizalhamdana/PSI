@@ -28,6 +28,14 @@ class C_Users extends CI_Controller
 		}
 
 	}
+	public function logout(){
+		if(!$this->session->has_userdata('id_pengguna')){
+			redirect('C_Users');
+		}else{
+			$this->user->logout();
+			redirect('C_Users');
+		}
+	}
 	
 }
 
