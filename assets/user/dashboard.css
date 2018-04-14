@@ -1,0 +1,26 @@
+.navbar-fixed-left {
+    padding-bottom: 500px;
+}
+
+.navbar {
+    margin-bottom: 0;
+    margin-left: 0px;
+    margin-right: 0px;
+    grid-row-gap: 0;
+}
+
+.content {
+    background-color: #D1DBDE;
+    padding-bottom: 400px;
+}
+
+
+.row.no-gutter {
+  margin-left: 0;
+  margin-right: 0;
+}
+.row.no-gutter [class*='col-']:not(:first-child),
+.row.no-gutter [class*='col-']:not(:last-child) {
+  padding-right: 0;
+  padding-left: 0;
+}
