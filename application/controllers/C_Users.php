@@ -9,20 +9,24 @@ class C_Users extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->helper('url');
+		$this->load->model('M_Users','user');
 	}
 	public function index(){
-		$this->load->view('v_login');
+		$this->load->view('user/v_login');
 	}
 
 	public function login(){
-		$username=$this->input->post('username');
-		$password=$this->input->post('password');
-		echo $username."<br>";
-		echo $password;
-	}
+		$input =(object) $this->input->post();
+		//echo $username."<br>";
+		//echo $password;
 
-	public function dashboard() {
-		$this->load->view('user/dashboard');
+		if($this->user->cekLogin($input)){
+			$userAktif=$this->session->userdata('nama_pengguna');
+			$this->load->view('user/v_dashboard',compact('userAktif'));
+		}else{
+			redirect('C_Users');
+		}
+
 	}
 	
 }
