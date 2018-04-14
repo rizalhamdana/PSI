@@ -17,9 +17,9 @@
 			<div class="col-md-4 col-md-offset-4">
 				<div class="text-center" style="margin-top: 200px;">	
 					<h1>Halaman Login</h1>
-					<form action="" method="post">
+					<form action="<?= base_url('C_Users/login')?>" method="post">
 						<p><input type="text" name="username" placeholder="Username" class="form-control"></p>
-						<p><input type="password" name="username" placeholder="Password" class="form-control"></p>
+						<p><input type="password" name="password" placeholder="Password" class="form-control"></p>
 						<input type="submit" class="btn btn-success" style="width: 100%">
 					</form>
 				</div>
