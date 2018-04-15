@@ -15,7 +15,7 @@
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/user/dashboard.css">
+	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/user/dashboard.css')?>">
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -35,16 +35,14 @@
 		</div>
 	</nav>
 
-	<div class="container-fluid">
+	<div class="container-fluid" style="margin-top: 25px">
 	  <div class="row">
-	    	<div class="col-sm-3 col-lg-2">
-	      		<nav class="navbar navbar-default navbar-fixed-left">
-			        <li class="sidebar1">Menu1</li>
-			        <li class="sidebar2">Menu2</li>
-			        <li class="sidebar3">Menu3</li>
+	    	<div class="col-md-2">
+	      		<nav class="navbar navbar-inverse navbar-fixed-left">
+			        
 				</nav>
 			</div>
-	  		<div class="col-sm-9 col-lg-10 content">
+	  		<div class="col-md-10 content" style="background: #f5f5f5;">
 	      <!-- your page content -->
 	  		</div>
 	 	</div>

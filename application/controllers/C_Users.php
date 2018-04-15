@@ -16,15 +16,17 @@ class C_Users extends CI_Controller
 	}
 
 	public function login(){
-		$input =(object) $this->input->post();
-		//echo $username."<br>";
-		//echo $password;
-
-		if($this->user->cekLogin($input)){
-			$userAktif=$this->session->userdata('nama_pengguna');
-			$this->load->view('user/v_dashboard',compact('userAktif'));
+		if(!$this->session->has_userdata('username')){
+			$input =(object) $this->input->post();
+			if($this->user->cekLogin($input)){
+				$userAktif=$this->session->userdata('nama_pengguna');
+				/*digunakan untuk redirect ke halaman dashboard*/
+				$this->load->view('user/v_dashboard', compact('userAktif'));
+			}	else{
+				redirect('C_Users');
+			}
 		}else{
-			redirect('C_Users');
+			$this->load->view('user/v_dashboard');
 		}
 
 	}
