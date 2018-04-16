@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>Dashboard</title>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -41,8 +41,8 @@
 	  <div class="row">
 	    	<div class="col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
-					<li class="active"><a href="">Bencana</a></li>
-					<li><a href="">Pelapor</a></li>		
+					<li class="active"><a href="#">Bencana</a></li>
+					<li><a href="#">Pelapor</a></li>		
 				</ul>
 			</div>
 	  		<div class="col-sm-10 col-sm-off set-2 col-md-11 col-md-offset-1 main">
