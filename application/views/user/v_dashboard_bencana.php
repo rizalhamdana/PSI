@@ -15,7 +15,7 @@
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/style/dashboard.css')?>">
+	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/style/dash.css')?>">
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -45,8 +45,8 @@
 					<li><a href="">Pelapor</a></li>		
 				</ul>
 			</div>
-	  		<div class="col-sm-10 col-sm-off set-2 col-md-11 col-md-offset-1 main">
-	      		<h1 class="page-header">Pelapor</h1>
+	  		<div class="col-sm-9 col-sm-off set-3 col-md-10 col-md-offset-2 main">
+	      		<h1 class="page-header">Dashboard</h1>
 	      		<div class="table-responsive">
 	      			<table class="table table-hover">
 		              <thead>

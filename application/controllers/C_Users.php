@@ -38,6 +38,10 @@ class C_Users extends CI_Controller
 			redirect('C_Users');
 		}
 	}
+
+	public function dashboard() {
+		$this->load->view('user/v_dashboard');
+	}
 	
 }
 
