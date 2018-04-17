@@ -46,7 +46,7 @@
 				</ul>
 			</div>
 	  		<div class="col-sm-10 col-sm-off set-2 col-md-11 col-md-offset-1 main">
-	      		<h1 class="page-header">Pelapor</h1>
+	      		<h1 class="page-header"><?= $userAktif?></h1>
 	      		<div class="table-responsive">
 	      			<table class="table table-hover">
 		              <thead>

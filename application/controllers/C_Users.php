@@ -21,12 +21,12 @@ class C_Users extends CI_Controller
 			if($this->user->cekLogin($input)){
 				$userAktif=$this->session->userdata('nama_pengguna');
 				/*digunakan untuk redirect ke halaman dashboard*/
-				$this->load->view('user/v_dashboard', compact('userAktif'));
+				redirect('C_Bencana');
 			}	else{
 				redirect('C_Users');
 			}
 		}else{
-			$this->load->view('user/v_dashboard');
+			redirect('C_Bencana');
 		}
 
 	}
@@ -37,10 +37,6 @@ class C_Users extends CI_Controller
 			$this->user->logout();
 			redirect('C_Users');
 		}
-	}
-
-	public function dashboard() {
-		$this->load->view('user/v_dashboard');
 	}
 	
 }
