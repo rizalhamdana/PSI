@@ -12,7 +12,12 @@ class C_Users extends CI_Controller
 		$this->load->model('M_Users','user');
 	}
 	public function index(){
-		$this->load->view('user/v_login');
+		if($this->session->has_userdata('username')){
+			redirect('C_Bencana');
+		}else{
+			$this->load->view('user/v_login');	
+		}
+		
 	}
 
 	public function login(){
