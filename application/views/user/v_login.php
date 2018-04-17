@@ -14,7 +14,7 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4 col-md-offset-4">
+			<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2">
 				<div class="text-center" style="margin-top: 200px;">	
 					<h1>Halaman Login</h1>
 					<form action="<?= base_url('C_Users/login')?>" method="post">
