@@ -54,7 +54,7 @@
 	  		<div class="col-sm-10 col-sm-off set-2 col-md-10 col-md-offset-2 main">
 	      		<h1 class="page-header"><?= $userAktif?></h1>
 	      		<div class="col-md-6">
-					<canvas width="1" height="1" id="myLineChart" class=""></canvas>
+					<canvas width="10" height="5" id="myLineChart" class=""></canvas>
 	      			<script>	
 	      			var ctx = document.getElementById('myLineChart').getContext('2d');
 					var chart = new Chart(ctx, {
@@ -78,7 +78,7 @@
 	      		</script>	
 	      		</div>
 	      		<div class="col-md-6">
-					<canvas width="1" height="1" id="myBarChart" class=""></canvas>
+					<canvas width="10" height="5" id="myBarChart" class=""></canvas>
 					 <script>
 						var ctx = document.getElementById("myBarChart");
 						var myChart = new Chart(ctx, {
@@ -87,7 +87,7 @@
         						labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
         						datasets: [{
             						label: '# of Votes',
-            						data: [12, 19, 3, 5, 2, 3],
+            						data: [1, 19, 3, 5, 2, 3],
             						backgroundColor: [
                 						'rgba(255, 99, 132, 1)',
                 						'rgba(54, 162, 235, 1)',
