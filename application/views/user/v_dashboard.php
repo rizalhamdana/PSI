@@ -16,6 +16,11 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/style/dashboard.css')?>">
+	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top">
@@ -48,6 +53,72 @@
 		</div>
 	  		<div class="col-sm-10 col-sm-off set-2 col-md-10 col-md-offset-2 main">
 	      		<h1 class="page-header"><?= $userAktif?></h1>
+	      		<div class="col-md-4">
+					<canvas width="1" height="1" id="myLineChart" class=""></canvas>
+	      			<script>	
+	      			var ctx = document.getElementById('myLineChart').getContext('2d');
+					var chart = new Chart(ctx, {
+    				// The type of chart we want to create
+		    		type: 'line',
+
+  				  // The data for our dataset
+    				data: {
+       				 labels: ["January", "February", "March", "April", "May", "June", "July"],
+        			datasets: [{
+            			label: "My First dataset",
+            			backgroundColor: 'rgb(255, 99, 132)',
+            			borderColor: 'rgb(255, 99, 132)',
+            			data: [0, 10, 5, 2, 20, 30, 45],
+        				}]
+    				},
+
+    				// Configuration options go here
+    				options: {}
+					});
+	      		</script>	
+	      		</div>
+	      		<div class="col-md-4">
+					<canvas width="1" height="1" id="myBarChart" class=""></canvas>
+					 <script>
+						var ctx = document.getElementById("myBarChart");
+						var myChart = new Chart(ctx, {
+    						type: 'bar',
+    						data: {
+        						labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        						datasets: [{
+            						label: '# of Votes',
+            						data: [12, 19, 3, 5, 2, 3],
+            						backgroundColor: [
+                						'rgba(255, 99, 132, 1)',
+                						'rgba(54, 162, 235, 1)',
+                						'rgba(255, 206, 86, 1)',
+                						'rgba(75, 192, 192, 1)',
+                						'rgba(153, 102, 255, 1)',
+                						'rgba(255, 159, 64, 1)'
+            						],
+            						borderColor: [
+         						       'rgba(255,99,132,1)',
+                						'rgba(54, 162, 235, 1)',
+                						'rgba(255, 206, 86, 1)',
+                						'rgba(75, 192, 192, 1)',
+                						'rgba(153, 102, 255, 1)',
+                						'rgba(255, 159, 64, 1)'
+            						],
+            						borderWidth: 1
+        						}]
+    						},
+  								options: {
+        							scales: {
+            							yAxes: [{
+		               						ticks: {
+        		            					beginAtZero:true
+               								}
+           								}]
+        							}
+    							}
+							});
+					</script>
+	      		</div>
 	      		<div class="row">
 	      		<div class="col-md-12">
 	      			<div class="table-responsive">
