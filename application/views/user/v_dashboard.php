@@ -53,7 +53,7 @@
 		</div>
 	  		<div class="col-sm-10 col-sm-off set-2 col-md-10 col-md-offset-2 main">
 	      		<h1 class="page-header"><?= $userAktif?></h1>
-	      		<div class="col-md-4">
+	      		<div class="col-md-6">
 					<canvas width="1" height="1" id="myLineChart" class=""></canvas>
 	      			<script>	
 	      			var ctx = document.getElementById('myLineChart').getContext('2d');
@@ -77,7 +77,7 @@
 					});
 	      		</script>	
 	      		</div>
-	      		<div class="col-md-4">
+	      		<div class="col-md-6">
 					<canvas width="1" height="1" id="myBarChart" class=""></canvas>
 					 <script>
 						var ctx = document.getElementById("myBarChart");
