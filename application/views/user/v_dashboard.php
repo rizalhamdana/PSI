@@ -18,7 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/style/dashboard.css')?>">
 </head>
 <body>
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a href="#" class="navbar-brand">Logo</a>
@@ -39,15 +39,18 @@
 	
 	<div class="container-fluid">
 	  <div class="row">
-	    	<div class="col-md-2 sidebar">
+	    	<div class="col-md-2 col-sm-2 sidebar">
 				<ul class="nav nav-sidebar">
-					<li class="active"><a href="#">Bencana</a></li>
-					<li><a href="#">Pelapor</a></li>		
+					<li><a href="#">Bencana</a></li>
+					<li class="active"><a href="#">Pelapor</a></li>		
 				</ul>
 			</div>
-	  		<div class="col-sm-10 col-sm-off set-2 col-md-11 col-md-offset-1 main">
+		</div>
+	  		<div class="col-sm-10 col-sm-off set-2 col-md-10 col-md-offset-2 main">
 	      		<h1 class="page-header"><?= $userAktif?></h1>
-	      		<div class="table-responsive">
+	      		<div class="row">
+	      		<div class="col-md-12">
+	      			<div class="table-responsive">
 	      			<table class="table table-hover">
 		              <thead>
 		                <tr>
@@ -73,7 +76,10 @@
 
 		              </tbody>
 		            </table>	
-	      		</div>
+	      			</div>
+	      		</div>	
+	      		</div>	
+	      		
 	  		</div>
 	 	</div>
 	</div>		        
