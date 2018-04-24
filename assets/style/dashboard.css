@@ -1,3 +1,4 @@
+
 .navbar-default {
   background: #fff;
   border-bottom: 1px solid #e6eaee;
@@ -41,7 +42,7 @@
 .sidebar {
     color: #dbe2e8;
     position: fixed;
-    top: 51px;
+    top: 0;
     bottom: 0;
     left: 0;
     z-index: 1000;
