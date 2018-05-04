@@ -16,7 +16,7 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<!-- "?ts=<?=time()?>" digunakan untuk update css di browser setiap css diubah-->
-	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/style/dashboard.css?ts=<?=time()?>')?>">
+	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/style/dashboard/pelapor.css?ts=<?=time()?>')?>">
 	
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
@@ -27,7 +27,7 @@
 	<div class="row">
 		<div class="col-md-2 col-sm-12 sidebar">
 			<ul class="nav nav-sidebar">
-				<li><a href="#">Bencana</a></li>
+				<li><a href="<?= base_url('C_Bencana/index');?>#">Bencana</a></li>
 				<li class="active"><a href="#">Pelapor</a></li>		
 			</ul>
 		</div>
