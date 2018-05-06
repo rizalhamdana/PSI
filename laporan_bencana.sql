@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2018 at 12:29 PM
+-- Generation Time: May 06, 2018 at 02:06 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -97,7 +97,8 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`id_pengguna`, `username`, `password`, `nama_pengguna`, `status_pengguna`, `id_wilayah`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'administrator', 1, 1);
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'administrator', 1, 1),
+(3, 'pelapor', '2f87909b09f48de15ad99693f4d7f0b8', 'General User', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -127,7 +128,9 @@ CREATE TABLE `wilayah` (
 
 INSERT INTO `wilayah` (`id_wilayah`, `nama_wilayah`) VALUES
 (1, 'Kantor Pusat'),
-(2, 'D.I Yogyakarta');
+(2, 'D.I Yogyakarta'),
+(4, 'DKI Jakarta'),
+(5, 'Jawa Tengah');
 
 --
 -- Indexes for dumped tables
@@ -194,12 +197,12 @@ ALTER TABLE `bencana`
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `wilayah`
 --
 ALTER TABLE `wilayah`
-  MODIFY `id_wilayah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_wilayah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Constraints for dumped tables
 --

@@ -50,7 +50,7 @@
 		<nav class="navbar navbar-default navbar-fixed-top col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a href="#" class="navbar-brand">Logo</a>
+					<a href="#" class="navbar-brand">CrashReport</a>
 				</div>
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
@@ -77,8 +77,9 @@
 	      	</div>
 	      	<div class="col-md-6 col-sm-6">			
 	   		</div>
+
 	   		<div class="row">
-	      		<div class="col-md-12 col-sm-12 card">
+	      		<div class="col-md-12 col-sm-12 card" style="margin-bottom: 50px;">
 	      			<div class="row" style="">
 	      				<?php foreach ($bencana as $disaster) {?>
 	      			
@@ -90,7 +91,80 @@
 	      				<?php } ?>
 	      			</div>
 	      			
+	      		</div>
+	      		<div class="col-md-12">
+	      			<div class="col-md-6 col-sm-6">
+	      		<div class="">
+				<canvas width="10" height="5" id="myLineChart" class=""></canvas>
+	      		<script>	
+	      			var ctx = document.getElementById('myLineChart').getContext('2d');
+					var chart = new Chart(ctx, {
+    				// The type of chart we want to create
+		    		type: 'line',
+
+  				  // The data for our dataset
+    				data: {
+       				 labels: ["January", "February", "March", "April", "May", "June", "July"],
+        			datasets: [{
+            			label: "My First dataset",
+            			backgroundColor: 'rgb(255, 99, 132)',
+            			borderColor: 'rgb(255, 99, 132)',
+            			data: [0, 10, 5, 2, 20, 30, 45],
+        				}]
+    				},
+
+    				// Configuration options go here
+    				options: {}
+					});
+	      		</script>	
+	      		</div>
+	      		</div>
+	      	<div class="col-md-6 col-sm-6">
+	      		<div class="">
+				<canvas width="10" height="5" id="myBarChart" class=""></canvas>
+				 <script>
+					var ctx = document.getElementById("myBarChart");
+					var myChart = new Chart(ctx, {
+    					type: 'bar',
+   						data: {
+       						labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+       						datasets: [{
+           						label: '# of Votes',
+           						data: [12, 19, 3, 5, 2, 3],
+            					backgroundColor: [
+                					'rgba(255, 99, 132, 1)',
+               						'rgba(54, 162, 235, 1)',
+           							'rgba(255, 206, 86, 1)',
+           							'rgba(75, 192, 192, 1)',
+                					'rgba(153, 102, 255, 1)',
+                					'rgba(255, 159, 64, 1)'
+            					],
+           						borderColor: [
+       					   	 	   'rgba(255,99,132,1)',
+                					'rgba(54, 162, 235, 1)',
+                					'rgba(255, 206, 86, 1)',
+                					'rgba(75, 192, 192, 1)',
+                					'rgba(153, 102, 255, 1)',
+                					'rgba(255, 159, 64, 1)'
+            					],
+            					borderWidth: 1
+        					}]
+    					},
+  							options: {
+        						scales: {
+            						yAxes: [{
+		          						ticks: {
+        	            					beginAtZero:true
+           								}
+       								}]
+       							}
+   							}
+					});
+				</script>
+	   		</div>
+	   		</div>
 	      		</div>	
+
 	      		<!--<ul class="pagination">
 						  <li class="active"><a href="#">1</a></li>
 						  <li><a href="#">2</a></li>
@@ -98,8 +172,11 @@
 						  <li><a href="#">4</a></li>
 						  <li><a href="#">5</a></li>
 					</ul>-->
-	      	</div>	
+
+	      	</div>
+
 	  	</div>
+
 	</div>
 </body>
 </html>

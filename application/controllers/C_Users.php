@@ -26,7 +26,12 @@ class C_Users extends CI_Controller
 			if($this->user->cekLogin($input)){
 				$userAktif=$this->session->userdata('nama_pengguna');
 				/*digunakan untuk redirect ke halaman dashboard*/
-				redirect('C_Bencana');
+				if($this->session->userdata('status_pengguna')=='1'){
+					redirect('C_Bencana');	
+				}else{
+					echo "HalamanPelapor Di sini";
+				}
+				
 			}	else{
 				redirect('C_Users');
 			}
