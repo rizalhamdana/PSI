@@ -13,7 +13,11 @@ class C_Users extends CI_Controller
 	}
 	public function index(){
 		if($this->session->has_userdata('username')){
-			redirect('C_Bencana');
+			if($this->session->userdata('status_pengguna')=='1'){
+					redirect('C_Bencana');	
+				}else{
+					redirect('C_PelaporBencana');
+				}
 		}else{
 			$this->load->view('user/v_login');	
 		}
@@ -29,7 +33,7 @@ class C_Users extends CI_Controller
 				if($this->session->userdata('status_pengguna')=='1'){
 					redirect('C_Bencana');	
 				}else{
-					echo "HalamanPelapor Di sini";
+					redirect('C_PelaporBencana');
 				}
 				
 			}	else{

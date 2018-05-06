@@ -13,7 +13,7 @@ class M_Users extends CI_Model
 
 		if(count($hasil)){
 			$dataSession=['login'=>true,'id_pengguna'=>$hasil->id_pengguna,'username'=>$hasil->username,
-							'nama_pengguna'=>$hasil->nama_pengguna,'status_pengguna'=>$hasil->status_pengguna
+							'nama_pengguna'=>$hasil->nama_pengguna,'status_pengguna'=>$hasil->status_pengguna,'id_wilayah'=>$hasil->id_wilayah
 						];
 			$this->session->set_userdata($dataSession);
 			return true;

@@ -24,6 +24,16 @@ class M_Bencana extends CI_Model {
 						   ->get('bencana');
 		return $result->result();
 	}
+
+	function getBencanaPelapor($id_wilayah){
+		$result=$this->db->where('id_wilayah',$id_wilayah)
+						->get('bencana');
+		if($result->num_rows()>0){
+			return $result->result();
+		}else{
+			return array();
+		}
+	}
 }
 
 ?>
