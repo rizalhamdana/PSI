@@ -59,6 +59,7 @@
 	      		<div class="col-md-12 col-sm-12">
 				    <h1 class="page-header"><?= $userAktif?></h1>
 				    <a href="<?= base_url('C_Bencana/tambahBencana');?>"><input class="btn btn-primary tambah-slot" type="submit" value="Tambah bencana"></a>
+				    <input class="btn btn-primary tambah-slot" type="submit" value="Tambah Slot Laporan Bencana">
 				</div>
 	      	</div>
 	      	<div class="col-md-6 col-sm-6">			
