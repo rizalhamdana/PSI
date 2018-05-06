@@ -44,7 +44,7 @@
 		<div class="col-md-2 col-sm-12 sidebar">
 			<ul class="nav nav-sidebar">
 				<li class="active"><a href="<?= base_url('C_Bencana/index');?>">Bencana</a></li>
-				<li><a href="<?= base_url('C_Bencana/tampilPelapor');?>">Pelapor</a></li>		
+				<!--<li><a href="<?= base_url('C_Bencana/tampilPelapor');?>">Pelapor</a></li>-->		
 			</ul>
 		</div>
 		<nav class="navbar navbar-default navbar-fixed-top col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2">

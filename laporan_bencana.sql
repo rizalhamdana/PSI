@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2018 at 11:28 AM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.2
+-- Generation Time: May 06, 2018 at 11:45 AM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -34,16 +32,6 @@ CREATE TABLE `bencana` (
   `tanggal_bencana` date NOT NULL,
   `id_wilayah` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `bencana`
---
-
-INSERT INTO `bencana` (`id_bencana`, `nama_bencana`, `tanggal_bencana`, `id_wilayah`) VALUES
-(1, 'Jogja', '1997-12-12', 2),
-(2, 'Jogja', '1997-12-12', 2),
-(3, 'Jogja', '1997-12-12', 2),
-(4, 'Jogja', '1212-12-12', 2);
 
 -- --------------------------------------------------------
 
@@ -92,16 +80,16 @@ CREATE TABLE `pengguna` (
   `username` varchar(20) NOT NULL,
   `password` varchar(100) NOT NULL,
   `nama_pengguna` varchar(30) NOT NULL,
-  `status_pengguna` int(11) NOT NULL
+  `status_pengguna` int(11) NOT NULL,
+  `id_wilayah` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pengguna`
 --
 
-INSERT INTO `pengguna` (`id_pengguna`, `username`, `password`, `nama_pengguna`, `status_pengguna`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'administrator', 1),
-(2, 'admin', 'admin', 'admin', 1);
+INSERT INTO `pengguna` (`id_pengguna`, `username`, `password`, `nama_pengguna`, `status_pengguna`, `id_wilayah`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'administrator', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -126,6 +114,13 @@ CREATE TABLE `wilayah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `wilayah`
+--
+
+INSERT INTO `wilayah` (`id_wilayah`, `nama_wilayah`) VALUES
+(1, 'Kantor Pusat');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -133,7 +128,8 @@ CREATE TABLE `wilayah` (
 -- Indexes for table `bencana`
 --
 ALTER TABLE `bencana`
-  ADD PRIMARY KEY (`id_bencana`);
+  ADD PRIMARY KEY (`id_bencana`),
+  ADD KEY `id_wilayah` (`id_wilayah`);
 
 --
 -- Indexes for table `kerusakan`
@@ -161,7 +157,8 @@ ALTER TABLE `laporan`
 -- Indexes for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  ADD PRIMARY KEY (`id_pengguna`);
+  ADD PRIMARY KEY (`id_pengguna`),
+  ADD KEY `id_wilayah` (`id_wilayah`);
 
 --
 -- Indexes for table `spesifikasi`
@@ -184,16 +181,25 @@ ALTER TABLE `wilayah`
 --
 ALTER TABLE `bencana`
   MODIFY `id_bencana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
   MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+--
+-- AUTO_INCREMENT for table `wilayah`
+--
+ALTER TABLE `wilayah`
+  MODIFY `id_wilayah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `bencana`
+--
+ALTER TABLE `bencana`
+  ADD CONSTRAINT `bencana_ibfk_1` FOREIGN KEY (`id_wilayah`) REFERENCES `wilayah` (`id_wilayah`);
 
 --
 -- Constraints for table `kerusakanspesifikasi`
@@ -206,11 +212,15 @@ ALTER TABLE `kerusakanspesifikasi`
 -- Constraints for table `laporan`
 --
 ALTER TABLE `laporan`
-  ADD CONSTRAINT `laporan_ibfk_2` FOREIGN KEY (`id_wilayah`) REFERENCES `wilayah` (`id_wilayah`),
   ADD CONSTRAINT `laporan_ibfk_4` FOREIGN KEY (`id_kerusakan`) REFERENCES `kerusakan` (`id_kerusakan`),
   ADD CONSTRAINT `laporan_ibfk_5` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id_pengguna`),
   ADD CONSTRAINT `laporan_ibfk_6` FOREIGN KEY (`id_bencana`) REFERENCES `bencana` (`id_bencana`);
-COMMIT;
+
+--
+-- Constraints for table `pengguna`
+--
+ALTER TABLE `pengguna`
+  ADD CONSTRAINT `pengguna_ibfk_1` FOREIGN KEY (`id_wilayah`) REFERENCES `wilayah` (`id_wilayah`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
