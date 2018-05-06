@@ -26,6 +26,19 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 	
 </head>
+<style>
+	.thumb-slot{
+		background: ;
+		margin: 10px 10px;
+		box-shadow: 8px 8px 10px #e6eaee;
+		max-width: 300px;
+	
+	}
+	 .caption > h3{
+			
+
+	}
+</style>
 <body>
 	<div class="row">
 		<div class="col-md-2 col-sm-12 sidebar">
@@ -66,45 +79,32 @@
 	   		</div>
 	   		<div class="row">
 	      		<div class="col-md-12 col-sm-12 card">
+	      			<div class="row" style="">
+	      				<div class="col-md-4 thumbnail thumb-slot">
+	      					<div class="caption">
+	      						<h3 class="text-center">Bencana Merapi 2010</h3>
+	      					</div>
+	      				</div>
+	      				<div class="col-md-4 thumbnail thumb-slot">
+	      					<div class="caption">
+	      						<h3 class="text-center">Bencana Gempa</h3>
+	      					</div>
+	      				</div>
+	      				<div class="col-md-4 thumbnail thumb-slot">
+	      					<div class="caption">
+	      						<h3 class="text-center">Bencana Tsunami Aceh</h3>
+	      					</div>
+	      				</div>
+	      			</div>
 	      			
-	      			<table class="table">
-					    <thead>
-					      <tr>
-					      	<th>No</th>
-					        <th>Bencana</th>
-					        <th>Wilayah</th>
-					        <th>Tanggal</th>
-					      </tr>
-					    </thead>
-					    <tbody>
-					      <tr>
-					        <td>1</td>	
-					        <td>Gunung Agung</td>
-					        <td>Bali</td>
-					        <td>20/01/2017</td>
-					      </tr>
-					      <tr>
-					        <td>2</td>	
-					        <td>Gunung Sinabung</td>
-					        <td>Sumatera Utara</td>
-					        <td>10/5/2017</td>
-					      </tr>
-					      <tr>
-					        <td>3</td>	
-					        <td>Gempa Bumi Jogja</td>
-					        <td>Daerah Istimewa Yogyakarta</td>
-					        <td>22/10/2010</td>
-					      </tr>
-					    </tbody>
-					  </table>
 	      		</div>	
-	      		<ul class="pagination">
+	      		<!--<ul class="pagination">
 						  <li class="active"><a href="#">1</a></li>
 						  <li><a href="#">2</a></li>
 						  <li><a href="#">3</a></li>
 						  <li><a href="#">4</a></li>
 						  <li><a href="#">5</a></li>
-					</ul>
+					</ul>-->
 	      	</div>	
 	  	</div>
 	</div>
