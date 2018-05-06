@@ -24,26 +24,7 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-
-	<script>
-		 $(function() {
-//twitter bootstrap script
- $("button#submit").click(function(){
-         $.ajax({
-     type: "POST",
- url: "process.php",
- data: $('form.contact').serialize(),
-         success: function(msg){
-                 $("#thanks").html(msg)
-        $("#form-content").modal('hide'); 
-         },
- error: function(){
- alert("failure");
- }
-       });
- });
-});
-</script>
+	
 </head>
 <body>
 	<div class="row">
@@ -77,7 +58,7 @@
 	      	<div class="row">
 	      		<div class="col-md-12 col-sm-12">
 				    <h1 class="page-header"><?= $userAktif?></h1>
-				    <input class="btn btn-primary tambah-slot" type="submit" value="Tambah bencana">
+				    <a href="<?= base_url('C_Bencana/tambahBencana');?>"><input class="btn btn-primary tambah-slot" type="submit" value="Tambah bencana"></a>
 				</div>
 	      	</div>
 	      	<div class="col-md-6 col-sm-6">			
@@ -125,37 +106,6 @@
 					</ul>
 	      	</div>	
 	  	</div>
-	  	<div id="thanks"><p><a data-toggle="modal" href="#form-content" class="btn btn-primary">Contact us</a></p></div>
-	 <!-- model content --> 
-	 <div id="form-content" class="modal hide fade in" style="display: none; ">
-	         <div class="modal-header">
-	               <a class="close" data-dismiss="modal">×</a>
-	               <h3>Contact us</h3>
-	         </div>
-	 <div>
-	 <form class="contact">
-	 <fieldset>
-	          <div class="modal-body">
-	          <ul class="nav nav-list">
-	 <li class="nav-header">Name</li>
-	 <li><input class="input-xlarge" value=" krizna" type="text" name="name"></li>
-	 <li class="nav-header">Email</li>
-	 <li><input class="input-xlarge" value=" user@krizna.com" type="text" name="Email"></li>
-	 <li class="nav-header">Message</li>
-	 <li><textarea class="input-xlarge" name="sug" rows="3"> Thanks for the article and demo
-	 </textarea></li>
-	 </ul> 
-	         </div>
-	 </fieldset>
-	 </form>
-	 </div>
-	      <div class="modal-footer">
-	          <button class="btn btn-success" id="submit">submit</button>
-	          <a href="#" class="btn" data-dismiss="modal">Close</a>
-	   </div>
-	 </div>
 	</div>
-
-	
 </body>
 </html>
