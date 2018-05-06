@@ -1,3 +1,44 @@
+/*card untuk slot bencana*/
+.card {
+  display: inline-block;
+  background-color: #FFFFFF;
+  margin-right: 40px;
+  margin-top : 20px;
+  border-radius: 8px;
+  -moz-box-shadow : 5px 5px 20px #e6eaee;
+  -webkit-box-shadow : 5px 5px 13px #e6eaee;
+  box-shadow : 8px 8px 10px #e6eaee;
+}
+
+.pagination {
+  top: 50%;
+  left: 43%;
+  position: absolute;
+  margin: auto;
+}
+
+.page-header {
+  display: inline-block;
+}
+ 
+.tambah-slot:hover,
+.tambah-slot:focus {
+  background: white;
+  color: #205081;
+  border: solid 1px #205081;
+}
+
+.tambah-slot {
+  color: white;
+  background: #205081;
+  border-style: none;
+  display: inline-block;
+  float: right;
+  padding: 10px;
+  text-overflow: ellipsis;
+  font-size: 14px;
+}
+
 .navbar-default {
   background: #fff;
   border-bottom: 1px solid #e6eaee;

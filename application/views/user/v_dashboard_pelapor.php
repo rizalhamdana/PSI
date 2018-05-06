@@ -16,7 +16,7 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<!-- "?ts=<?=time()?>" digunakan untuk update css di browser setiap css diubah-->
-	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/style/dashboard/pelapor.css?ts=<?=time()?>')?>">
+	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/style/dashboard/pel.css?ts=<?=time()?>')?>">
 	
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
@@ -54,6 +54,7 @@
 		<div class="col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
 	      	<h1 class="page-header"><?= $userAktif?></h1>
 	      	<div class="col-md-6 col-sm-6">
+	      		<div class="card">
 				<canvas width="10" height="5" id="myLineChart" class=""></canvas>
 	      		<script>	
 	      			var ctx = document.getElementById('myLineChart').getContext('2d');
@@ -77,7 +78,9 @@
 					});
 	      		</script>	
 	      		</div>
+	      		</div>
 	      	<div class="col-md-6 col-sm-6">
+	      		<div class="card">
 				<canvas width="10" height="5" id="myBarChart" class=""></canvas>
 				 <script>
 					var ctx = document.getElementById("myBarChart");
@@ -118,6 +121,7 @@
    							}
 					});
 				</script>
+	   		</div>
 	   		</div>
 	   		<div class="row">
 	      		<div class="col-md-12">
