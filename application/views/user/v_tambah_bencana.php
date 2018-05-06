@@ -2,15 +2,28 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-</head>
+<?php 
+$this->load->view('user/header')
+?>
 <body>
-	<form action="<?= base_url('C_Bencana/tambahBencana')?>" method="post">
-		<input type="text" name="Bencana" value="nama bencana">
-		<input type="text" name="Wilayah" value="wilayah bencana">
-		<input type="date" name="Date">
-		<input type="submit" value="Submit">
-	</form>
+	<div class="container" style="padding-top: 50px;">
+		<div class="row">
+
+			<div class="col-md-6">
+				<h2>Tambah Slot Laporan Bencana</h2>
+				<br>
+				<form action="<?= base_url('C_Bencana/tambahBencana')?>" method="post">
+					<p><input type="text" name="Bencana" placeholder="Nama Bencana" class="form-control"></p>
+					<p><select name="" id="" class="form-control" style="max-width: 200px;">
+						<option value="" selected="selected">Wilayah Bencana</option>
+						<option value="">D.I Yogyakarta</option>
+					</select></p>
+					<p><input type="date" name="Date" class="form-control" placeholder="Tanggal terjadi Bencana"></p>
+					<input type="submit" value="Submit" class="btn btn-success">
+				</form>
+			</div>
+		</div>
+	</div>
+	
 </body>
 </html>

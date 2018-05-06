@@ -19,7 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/style/dashboard/ben.css?ts=<?=time()?>')?>">
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-<script src="http://www.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <script src="http://www.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
@@ -58,8 +58,8 @@
 	      	<div class="row">
 	      		<div class="col-md-12 col-sm-12">
 				    <h1 class="page-header"><?= $userAktif?></h1>
-				    <a href="<?= base_url('C_Bencana/tambahBencana');?>"><input class="btn btn-primary tambah-slot" type="submit" value="Tambah bencana"></a>
-				    <input class="btn btn-primary tambah-slot" type="submit" value="Tambah Slot Laporan Bencana">
+				    <a href="<?= base_url('C_Bencana/tambahBencana');?>"><input class="btn btn-primary tambah-slot" type="submit" value="Tambah Slot Laporan Bencana"></a>
+				    
 				</div>
 	      	</div>
 	      	<div class="col-md-6 col-sm-6">			
