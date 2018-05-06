@@ -77,7 +77,7 @@
 	      	<div class="row">
 	      		<div class="col-md-12 col-sm-12">
 				    <h1 class="page-header"><?= $userAktif?></h1>
-				    <input class="btn btn-primary tambah-slot" type="submit" value="Tambah bencana">
+				    <input class="btn btn-primary tambah-slot" type="submit" value="Tambah Slot Laporan Bencana">
 				</div>
 	      	</div>
 	      	<div class="col-md-6 col-sm-6">			
