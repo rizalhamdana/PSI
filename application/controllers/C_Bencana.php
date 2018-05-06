@@ -21,7 +21,6 @@ class C_Bencana extends CI_Controller
 			redirect('C_Users');
 		}
 	}
-
 	function tampilPelapor() {
 		$userAktif=$this->session->userdata('nama_pengguna');
 		$this->load->view('user/v_dashboard_pelapor', compact('userAktif'));
@@ -30,10 +29,13 @@ class C_Bencana extends CI_Controller
 	function tambahBencana() {
 		$this->load->view('user/v_tambah_bencana');
 
+		$wilayah = $this->input->post('Wilayah');
+
+
 		$data = array(
-			'bencana' => $this->input->post('Bencana'),
-			'wilayah' => $this->input->post('Wilayah'),
-			'date' => $this->input->post('Date') 
+			'nama_bencana' => $this->input->post('Bencana'),
+			'tanggal_bencana' => $this->input->post('Date'), 
+			'id_wilayah' => $this->input->post('Wilayah')
 		);
 
 		$this->form_validation->set_rules('Bencana', 'bencana', 'required');
@@ -42,9 +44,10 @@ class C_Bencana extends CI_Controller
 
 		if($this->form_validation->run() == TRUE) {
 			$query = $this->bencana->tambahBencana($data);
-			$this->load->view('user/v_dashboard_bencana');
+			$userAktif=$this->session->userdata('nama_pengguna');
+			$this->load->view('user/v_dashboard_bencana', compact('userAktif'));
 		} else {
-			echo $data['date'];
+			echo $wilayah;
 		}
 	}
 

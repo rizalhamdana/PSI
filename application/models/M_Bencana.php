@@ -10,7 +10,7 @@ class M_Bencana extends CI_Model {
 	}
 
 	function getBencana() {
-		$this->db->get('bencana');
+		$result = $this->db->get('bencana'); 
 	}
 }
 

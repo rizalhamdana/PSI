@@ -14,9 +14,9 @@ $this->load->view('user/header')
 				<br>
 				<form action="<?= base_url('C_Bencana/tambahBencana')?>" method="post">
 					<p><input type="text" name="Bencana" placeholder="Nama Bencana" class="form-control"></p>
-					<p><select name="" id="" class="form-control" style="max-width: 200px;">
-						<option value="" selected="selected">Wilayah Bencana</option>
-						<option value="">D.I Yogyakarta</option>
+					<p><select name="Wilayah" id="" class="form-control" style="max-width: 200px;">
+						<option value="1" selected="selected">Wilayah Bencana</option>
+						<option value="2">D.I Yogyakarta</option>
 					</select></p>
 					<p><input type="date" name="Date" class="form-control" placeholder="Tanggal terjadi Bencana"></p>
 					<input type="submit" value="Submit" class="btn btn-success">
