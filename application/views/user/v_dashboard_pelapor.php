@@ -52,7 +52,13 @@
 	</div>
 	<div class="row">
 		<div class="col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
-	      	<h1 class="page-header"><?= $userAktif?></h1>
+	      	
+	      	
+	      	<?php foreach ($search as $disaster) {?>
+			
+	      	<h1 class="page-header">
+	      		<?= $disaster->nama_bencana?>
+	      	<?php } ?></h1>
 	      	<div class="col-md-6 col-sm-6">
 	      		<div class="card">
 				<canvas width="10" height="5" id="myLineChart" class=""></canvas>

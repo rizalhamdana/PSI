@@ -18,6 +18,12 @@ class M_Bencana extends CI_Model {
 			return array();
 		}
 	}
+
+	function namaBencana($id_bencana) {
+		$result = $this->db->where('id_bencana', $id_bencana)
+						   ->get('bencana');
+		return $result->result();
+	}
 }
 
 ?>
