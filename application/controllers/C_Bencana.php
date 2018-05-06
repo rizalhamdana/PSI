@@ -12,11 +12,13 @@ class C_Bencana extends CI_Controller
 		$this->load->library('form_validation');
 		$this->load->helper('url', 'date');
 		$this->load->model('M_Bencana','bencana');
+		$this->load->model('M_Wilayah','wilayah');
 	}
 	function index(){
 		if($this->session->has_userdata('username')){
 			$userAktif=$this->session->userdata('nama_pengguna');
-			$this->load->view('user/v_dashboard_bencana', compact('userAktif'));			
+			$bencana=$this->bencana->getBencana();
+			$this->load->view('user/v_dashboard_bencana', compact('userAktif','bencana'));			
 		}else{
 			redirect('C_Users');
 		}
@@ -25,9 +27,11 @@ class C_Bencana extends CI_Controller
 		$userAktif=$this->session->userdata('nama_pengguna');
 		$this->load->view('user/v_dashboard_pelapor', compact('userAktif'));
 	}
+	
 
 	function tambahBencana() {
-		$this->load->view('user/v_tambah_bencana');
+		$wilayah=$this->wilayah->getAllWilayah();
+		$this->load->view('user/v_tambah_bencana',compact('wilayah'));
 
 		$wilayah = $this->input->post('Wilayah');
 
@@ -45,7 +49,7 @@ class C_Bencana extends CI_Controller
 		if($this->form_validation->run() == TRUE) {
 			$query = $this->bencana->tambahBencana($data);
 			$userAktif=$this->session->userdata('nama_pengguna');
-			$this->load->view('user/v_dashboard_bencana', compact('userAktif'));
+			redirect('C_Bencana');
 		} else {
 			echo $wilayah;
 		}

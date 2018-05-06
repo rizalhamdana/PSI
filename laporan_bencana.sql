@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2018 at 11:45 AM
+-- Generation Time: May 06, 2018 at 12:29 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -28,10 +28,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `bencana` (
   `id_bencana` int(11) NOT NULL,
-  `nama_bencana` varchar(11) NOT NULL,
+  `nama_bencana` varchar(100) NOT NULL,
   `tanggal_bencana` date NOT NULL,
   `id_wilayah` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bencana`
+--
+
+INSERT INTO `bencana` (`id_bencana`, `nama_bencana`, `tanggal_bencana`, `id_wilayah`) VALUES
+(6, 'Erupsi Gunung Merapi', '2018-05-24', 2),
+(7, 'Gempa Jogja', '2018-05-09', 2);
 
 -- --------------------------------------------------------
 
@@ -118,7 +126,8 @@ CREATE TABLE `wilayah` (
 --
 
 INSERT INTO `wilayah` (`id_wilayah`, `nama_wilayah`) VALUES
-(1, 'Kantor Pusat');
+(1, 'Kantor Pusat'),
+(2, 'D.I Yogyakarta');
 
 --
 -- Indexes for dumped tables
@@ -180,7 +189,7 @@ ALTER TABLE `wilayah`
 -- AUTO_INCREMENT for table `bencana`
 --
 ALTER TABLE `bencana`
-  MODIFY `id_bencana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_bencana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
@@ -190,7 +199,7 @@ ALTER TABLE `pengguna`
 -- AUTO_INCREMENT for table `wilayah`
 --
 ALTER TABLE `wilayah`
-  MODIFY `id_wilayah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_wilayah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --

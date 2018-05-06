@@ -11,6 +11,12 @@ class M_Bencana extends CI_Model {
 
 	function getBencana() {
 		$result = $this->db->get('bencana'); 
+
+		if($result->num_rows()>0){
+			return $result->result();
+		}else{
+			return array();
+		}
 	}
 }
 

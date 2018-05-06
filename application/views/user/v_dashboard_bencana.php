@@ -80,21 +80,14 @@
 	   		<div class="row">
 	      		<div class="col-md-12 col-sm-12 card">
 	      			<div class="row" style="">
+	      				<?php foreach ($bencana as $disaster) {?>
+	      			
 	      				<div class="col-md-4 thumbnail thumb-slot">
 	      					<div class="caption">
-	      						<h3 class="text-center">Bencana Merapi 2010</h3>
+	      						<h3 class="text-center"><?= $disaster->nama_bencana?></h3>
 	      					</div>
 	      				</div>
-	      				<div class="col-md-4 thumbnail thumb-slot">
-	      					<div class="caption">
-	      						<h3 class="text-center">Bencana Gempa</h3>
-	      					</div>
-	      				</div>
-	      				<div class="col-md-4 thumbnail thumb-slot">
-	      					<div class="caption">
-	      						<h3 class="text-center">Bencana Tsunami Aceh</h3>
-	      					</div>
-	      				</div>
+	      				<?php } ?>
 	      			</div>
 	      			
 	      		</div>	
