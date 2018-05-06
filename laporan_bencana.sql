@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 14, 2018 at 04:36 PM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.1
+-- Generation Time: May 06, 2018 at 11:28 AM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -28,9 +30,20 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `bencana` (
   `id_bencana` int(11) NOT NULL,
-  `nama_bencana` int(11) NOT NULL,
-  `tanggal_bencana` int(11) NOT NULL
+  `nama_bencana` varchar(11) NOT NULL,
+  `tanggal_bencana` date NOT NULL,
+  `id_wilayah` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bencana`
+--
+
+INSERT INTO `bencana` (`id_bencana`, `nama_bencana`, `tanggal_bencana`, `id_wilayah`) VALUES
+(1, 'Jogja', '1997-12-12', 2),
+(2, 'Jogja', '1997-12-12', 2),
+(3, 'Jogja', '1997-12-12', 2),
+(4, 'Jogja', '1212-12-12', 2);
 
 -- --------------------------------------------------------
 
@@ -87,7 +100,8 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`id_pengguna`, `username`, `password`, `nama_pengguna`, `status_pengguna`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'administrator', 1);
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'administrator', 1),
+(2, 'admin', 'admin', 'admin', 1);
 
 -- --------------------------------------------------------
 
@@ -108,7 +122,7 @@ CREATE TABLE `spesifikasi` (
 
 CREATE TABLE `wilayah` (
   `id_wilayah` int(11) NOT NULL,
-  `nama_wilayah` int(11) NOT NULL
+  `nama_wilayah` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -166,10 +180,17 @@ ALTER TABLE `wilayah`
 --
 
 --
+-- AUTO_INCREMENT for table `bencana`
+--
+ALTER TABLE `bencana`
+  MODIFY `id_bencana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- Constraints for dumped tables
 --
@@ -186,9 +207,10 @@ ALTER TABLE `kerusakanspesifikasi`
 --
 ALTER TABLE `laporan`
   ADD CONSTRAINT `laporan_ibfk_2` FOREIGN KEY (`id_wilayah`) REFERENCES `wilayah` (`id_wilayah`),
-  ADD CONSTRAINT `laporan_ibfk_3` FOREIGN KEY (`id_bencana`) REFERENCES `bencana` (`id_bencana`),
   ADD CONSTRAINT `laporan_ibfk_4` FOREIGN KEY (`id_kerusakan`) REFERENCES `kerusakan` (`id_kerusakan`),
-  ADD CONSTRAINT `laporan_ibfk_5` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id_pengguna`);
+  ADD CONSTRAINT `laporan_ibfk_5` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id_pengguna`),
+  ADD CONSTRAINT `laporan_ibfk_6` FOREIGN KEY (`id_bencana`) REFERENCES `bencana` (`id_bencana`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
