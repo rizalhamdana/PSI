@@ -25,7 +25,19 @@ class M_Users extends CI_Model
 		$data=['username'=>null, 'id_pengguna'=>null, 'login'=>null, 'nama_pengguna'=>null,'status_pengguna'=>null];
 			$this->session->unset_userdata($data);
 			$this->session->sess_destroy();
+	}
+	public function insertNewUser($input){
+		$this->db->insert('pengguna',$input);
+		return $this->db->insert_id();
 	}	
+	public function getAllUsers(){
+		$hasil=$this->db->get('pengguna');
+		if($hasil->num_rows()>0){
+			return $hasil->result();
+		}else{
+			return array();
+		}
+	}
 
 }
 

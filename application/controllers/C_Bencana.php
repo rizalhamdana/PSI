@@ -13,6 +13,7 @@ class C_Bencana extends CI_Controller
 		$this->load->helper('url', 'date');
 		$this->load->model('M_Bencana','bencana');
 		$this->load->model('M_Wilayah','wilayah');
+		$this->load->model('M_Users','user');
 	}
 	function index(){
 		if($this->session->has_userdata('username')){
@@ -25,7 +26,9 @@ class C_Bencana extends CI_Controller
 	}
 	function tampilPelapor() {
 		$userAktif=$this->session->userdata('nama_pengguna');
-		$this->load->view('user/v_dashboard_pelapor', compact('userAktif'));
+		$allWilayah=$this->wilayah->getAllWilayah();
+		$allUser=$this->user->getAllUsers();
+		$this->load->view('user/v_list_pelapor', compact('userAktif','allUser','allWilayah'));
 	}
 	
 

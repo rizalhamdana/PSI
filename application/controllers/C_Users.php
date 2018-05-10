@@ -10,6 +10,7 @@ class C_Users extends CI_Controller
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('M_Users','user');
+		$this->load->model('M_Wilayah','wilayah');
 	}
 	public function index(){
 		if($this->session->has_userdata('username')){
@@ -50,6 +51,22 @@ class C_Users extends CI_Controller
 		}else{
 			$this->user->logout();
 			redirect('C_Users');
+		}
+	}
+	public function addUserPelapor(){
+		if(!$_POST){
+			$allWilayah=$this->wilayah->getAllWilayah();
+			$this->load->view('user/v_form_add_user_pelapor',compact('allWilayah'));
+		}else{
+			$dataInput=array(
+				'nama_pengguna'=>$this->input->post('nama_pengguna'),
+				'username'=>$this->input->post('username'),
+				'password'=>md5($this->input->post('password')),
+				'status_pengguna'=>$this->input->post('status_pengguna'),
+				'id_wilayah'=>$this->input->post('id_wilayah')
+			);
+			$this->user->insertNewUser($dataInput);
+			redirect('C_Bencana/tampilPelapor');
 		}
 	}
 	
