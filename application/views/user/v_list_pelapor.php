@@ -34,7 +34,7 @@
 		                 					<td><?php echo $wilayah->nama_wilayah ?></td>
 		                 				<?php endif ?>
 		                 			<?php endforeach ?>
-		                 			<td><a href="#" class="btn btn-success">Edit Data</a> &nbsp &nbsp <a href="#" class="btn btn-danger">Hapus</a></td>
+		                 			<td><a href="<?php echo base_url('C_Users/EditDataPelapor?id_pengguna=').$user->id_pengguna; ?>" class="btn btn-success">Edit Data</a> &nbsp &nbsp <a href="#" class="btn btn-danger">Hapus</a></td>
 
 		               			</tr>
 		              		<?php endif ?>

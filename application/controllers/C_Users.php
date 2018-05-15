@@ -69,6 +69,27 @@ class C_Users extends CI_Controller
 			redirect('C_Bencana/tampilPelapor');
 		}
 	}
+
+	public function EditDataPelapor(){
+		if(!$_POST){
+			$allWilayah=$this->wilayah->getAllWilayah();
+			$id_pelapor=$this->input->get('id_pengguna');
+			$pelapor=$this->user->getSpesifikPelapr($id_pelapor);
+			$this->load->view('user/v_form_edit_data_pelapor', compact('pelapor','allWilayah'));
+		}else{
+			$dataInput=array(
+				'nama_pengguna'=>$this->input->post('nama_pengguna'),
+				'username'=>$this->input->post('username'),
+				'password'=>md5($this->input->post('password')),
+				'status_pengguna'=>$this->input->post('status_pengguna'),
+				'id_wilayah'=>$this->input->post('id_wilayah'),
+				'id_pengguna'=>$this->input->post('id_pengguna')
+			);
+			$this->user->UpdateDataPelapor($dataInput);
+			redirect('C_Bencana/tampilPelapor');
+		}
+		
+	}
 	
 }
 

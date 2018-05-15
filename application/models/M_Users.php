@@ -39,6 +39,23 @@ class M_Users extends CI_Model
 		}
 	}
 
+	public function getSpesifikPelapr($id_pelapor){
+		$hasil=$this->db->where('id_pengguna',$id_pelapor)
+						->limit('1')
+						->get('pengguna');
+		if($hasil->num_rows()>0){
+			return $hasil->row();
+		}else{
+			return array();
+		}
+
+	}
+	public function UpdateDataPelapor($input){
+		$this->db->where('id_pengguna',$input['id_pengguna'])
+				->update('pengguna',$input);
+		
+	}
+
 }
 
  ?>
