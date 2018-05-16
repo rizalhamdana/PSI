@@ -56,6 +56,10 @@ class M_Users extends CI_Model
 		
 	}
 
+	public function hapusPelapor ($input) {
+		$this->db->where('id_pengguna', $input)
+				 ->delete('pengguna');
+	}
 }
 
  ?>

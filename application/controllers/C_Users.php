@@ -90,7 +90,12 @@ class C_Users extends CI_Controller
 		}
 		
 	}
-	
+
+	public function deleteUserPelapor() {
+		$id_pelapor = $this->input->get('id_pengguna');
+		$hapusPelapor = $this->user->hapusPelapor($id_pelapor);
+		redirect('C_Bencana/tampilPelapor');
+	}
 }
 
  ?>
