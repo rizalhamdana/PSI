@@ -1,6 +1,6 @@
 <div class="row">
 		<div class="col-md-2 col-sm-12 sidebar">
-			<ul class="nav nav-sidebar text-center" style="font-size: 25px;">
+			<ul class="nav nav-sidebar text-center" style="">
 				<li><a href="<?= base_url('C_Bencana/index');?>">Dashboard</a></li>
 				<li><a href="<?= base_url('C_Bencana/tampilPelapor');?>">Pelapor</a></li>		
 			</ul>
