@@ -45,7 +45,7 @@
 		<div class="col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
 	      	<div class="row">
 	      		<div class="col-md-12 col-sm-12">
-				    <h1 class="page-header"><?= $userAktif?></h1>
+				    
 				    <a href="<?= base_url('C_Bencana/tambahBencana');?>"><input class="btn btn-primary tambah-slot" type="submit" value="Tambah Slot Laporan Bencana"></a>
 				    
 				</div>
@@ -54,7 +54,7 @@
 	   		</div>
 
 	   		<div class="row">
-	      		<div class="col-md-12 col-sm-12 card" style="margin-bottom: 50px;">
+	      		<div class="col-md-12 col-sm-12" style="margin-bottom: 50px;">
 	      			<div class="row" style="">
 	      				<?php foreach ($bencana as $disaster) {?>
 	      			

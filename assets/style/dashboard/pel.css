@@ -27,16 +27,19 @@
   margin-right: -21px; /* 20px padding + 1px border */
   margin-bottom: 20px;
   margin-left: -20px;
+  padding-left: 50px;
 }
 
-.nav-sidebar > li > a,
-.nav-sidebar > li > a:hover,
-.nav-sidebar > li > a:focus {
+.nav-sidebar > li > a,.nav-sidebar > .input-group > li > a,
+.nav-sidebar > li > a:hover, .nav-sidebar > .input-group > li > a:hover
+.nav-sidebar > li > a:focus, .nav-sidebar > .input-group > li > a:focus{
   padding-right: 20px;
   padding-left: 20px;
   background-color: #222C3C;
   color: #dbe2e8;
   font-weight: bold;
+  margin: 0 auto;
+  font-size: 16px;
 }
 
 .nav-sidebar > .active > a,
@@ -58,9 +61,9 @@
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
     background-color: #222C3C;
-    border-right: 1px solid #eee;
+    border-right: 1px solid #eee;\
+    padding: 50px 50px;
 }
-
 
 /*background-color: #f5f5f5; background-color: #D1DBDE;*/
 .main {

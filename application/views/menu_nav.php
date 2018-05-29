@@ -1,8 +1,27 @@
 <div class="row">
 		<div class="col-md-2 col-sm-12 sidebar">
-			<ul class="nav nav-sidebar text-center" style="">
-				<li><a href="<?= base_url('C_Bencana/index');?>">Dashboard</a></li>
-				<li><a href="<?= base_url('C_Bencana/tampilPelapor');?>">Pelapor</a></li>		
+			<div class="col-md-12" style="margin:50px 0;">
+					<img src="<?php echo base_url('assets/images/user-logo.png') ?>" alt="" class="img-responsive img-circle" style="max-width: 128px; margin: 0 auto;">
+					<div class="text-center">
+						<h4><?php echo $this->session->userdata('nama_pengguna'); ?></h4>
+					</div>
+			</div>
+			
+			<ul class="nav nav-sidebar">
+				
+				<div class="input-group col-md-12">
+					<li>
+						<span class="glyphicon glyphicon-dashboard"></span>
+						<a href="<?= base_url('C_Bencana/index');?>">Dashboard</a>
+					</li></div>
+				<br>
+				<br>
+				<div class="input-group">
+					<li>
+						<span class="glyphicon glyphicon-user"></span>
+						<a href="<?= base_url('C_Bencana/tampilPelapor');?>">Pelapor</a>
+					</li>	
+				</div>	
 			</ul>
 		</div>
 		<nav class="navbar navbar-default navbar-fixed-top col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2">
