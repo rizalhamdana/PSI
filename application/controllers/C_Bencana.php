@@ -17,10 +17,8 @@ class C_Bencana extends CI_Controller
 	}
 	function index(){
 		if($this->session->has_userdata('username')){
-			$userAktif=$this->session->userdata('nama_pengguna');
 			$bencana=$this->bencana->getBencana();
-			
-			$this->load->view('user/v_dashboard_bencana', compact('userAktif','bencana'));			
+			$this->load->view('user/v_dashboard_bencana', compact('bencana'));			
 		}else{
 			redirect('C_Users');
 		}
