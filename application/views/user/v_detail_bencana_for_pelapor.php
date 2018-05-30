@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
 <?php $this->load->view('user/header');
-		$bencana=$result;
-
 ?>
-
-<body>
+<style>	
+	.dashboard-pelapor{
+		background-color: #1F2739;
+		color: 	#A7A1AE;
+	}
+</style>
+<body class="dashboard-pelapor">
 <nav class="navbar navbar-default navbar-static-top col-md-12 col-sm-12">
 			<div class="container-fluid">
 				<div class="navbar-header">
@@ -30,16 +33,55 @@
 		<?php 
 			foreach($result as $bencana){?>		
 				<div class="col col-md-12">
-					<h1>
-						<?php 
+					<div class="col-md-6 col-md-offset-3 text-center">
+						<h1 style=" color: #4DC3FA;">
+							<?php 
 
-						echo $bencana->nama_bencana; 
-						?>
-					</h1>	
-					<p><?php echo $bencana->tanggal_bencana;?></p>
+								echo $bencana->nama_bencana; 
+							?>
+						</h1>	
+						<p><?php echo $bencana->tanggal_bencana;?></p>	
+					</div>
+					
 				</div>
 				
 		<?php } ?>
+	</div>
+	<div class="row">	
+		<div class="col col-md-12 col-sm-12">	
+			<h2 style="font-weight: bolder; margin-bottom: 50px;">Laporan Anda</h2>
+			<div class="table-responsive">
+			<table class="table" style="">	
+				<thead class="table-cell dark-navy" style="">	
+						<tr>	
+							<th scope="col">Lokasi</th>
+							<th scope="col">Objek Kerusakan</th>
+							<th scope="col">Jenis Kerusakan</th>
+							<th scope="col">Tanggal Lapor</th>
+							<th scope="col">Aksi</th>
+						</tr>
+				</thead>
+				<tbody class="table-cell">	
+					<tr>
+						<td>Isi</td>
+						<td>Isi</td>
+						<td>Isi</td>
+						<td>Isi</td>
+						<td>Isi</td>
+					</tr>
+					<tr>
+						<td>Isi</td>
+						<td>Isi</td>
+						<td>Isi</td>
+						<td>Isi</td>
+						<td>Isi</td>
+					</tr>
+				</tbody>
+				
+			</table>
+			<a href="#" class="btn btn-primary">Tambah Laporan</a>
+		</div>
+		</div>
 	</div>
 
 
