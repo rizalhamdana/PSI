@@ -6,7 +6,7 @@
 </head>
 <style>
 	.cover-login{
-		margin-top: 200px; 
+		margin-top: 100px; 
 		background-color: white; 
 		padding: 100px 30px;
 		border-radius: 8px;
