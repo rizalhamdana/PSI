@@ -16,5 +16,13 @@
 			$result=$this->bencana->getBencanaPelapor($id_wilayah);
 			$this->load->view('user/v_pelapor_index',compact('result'));
 		}
+
+		function viewBencanaPelapor(){
+			$id_bencana=$this->input->get('id_bencana');
+			$result=$this->bencana->namaBencana($id_bencana);
+			$this->load->view('user/v_detail_bencana_for_pelapor',compact('result'));
+		}
+
+
 	}
  ?>

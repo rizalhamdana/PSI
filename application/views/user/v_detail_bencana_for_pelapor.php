@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
-<?php $this->load->view('user/header');?>
+<?php $this->load->view('user/header');
+		$bencana=$result;
+
+?>
+
 <body>
 <nav class="navbar navbar-default navbar-static-top col-md-12 col-sm-12">
 			<div class="container-fluid">
@@ -21,18 +25,24 @@
 			</div>
 		</nav>
 <div class="container">
-	<h1><?php echo $this->session->userdata('username'); ?></h1>
+	<a href="<?php echo base_url('C_PelaporBencana')?>" class="btn btn-primary">Kembali ke Halaman Utama</a>
 	<div class="row">
-		<?php foreach ($result as $bencana) {?>
-			<div class="col-md-4 thumbnail card" style="margin: 10px 10px;">
-			<h3 class="text-center"><a href="<?php 	echo base_url('C_PelaporBencana/viewBencanaPelapor?id_bencana=').$bencana->id_bencana; ?>" style="text-decoration: none;"><?php echo $bencana->nama_bencana; ?></a></h3>
-			<div class="col-md-4 col-md-offset-8">
-				<p><?php echo $bencana->tanggal_bencana; ?></p>
-			</div>
-		</div>
+		<?php 
+			foreach($result as $bencana){?>		
+				<div class="col col-md-12">
+					<h1>
+						<?php 
+
+						echo $bencana->nama_bencana; 
+						?>
+					</h1>	
+					<p><?php echo $bencana->tanggal_bencana;?></p>
+				</div>
+				
 		<?php } ?>
-		
 	</div>
+
+
 </div>
 </body>
 </html>
