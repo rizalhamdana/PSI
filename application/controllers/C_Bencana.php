@@ -24,24 +24,29 @@ class C_Bencana extends CI_Controller
 		}
 	}
 	function tampilPelapor() {
-		$userAktif=$this->session->userdata('nama_pengguna');
-		$allWilayah=$this->wilayah->getAllWilayah();
-		$allUser=$this->user->getAllUsers();
+		$userAktif = $this->session->userdata('nama_pengguna');
+		$allWilayah = $this->wilayah->getAllWilayah();
+		$allUser = $this->user->getAllUsers();
 		$this->load->view('user/v_list_pelapor', compact('userAktif','allUser','allWilayah'));
 	}
 	
 
 	function tambahBencana() {
-		$wilayah=$this->wilayah->getAllWilayah();
-		$this->load->view('user/v_tambah_bencana',compact('wilayah'));
+		if(!$_POST){
+			$jenis_bencana=$this->bencana->getAllJenisBencana();
+			$wilayah=$this->wilayah->getAllWilayah();
+			
+			$this->load->view('user/v_tambah_bencana',compact('wilayah','jenis_bencana'));
+		}else{
+		
 
-		$wilayah = $this->input->post('Wilayah');
-
+		$jenis_bencana=$this->input->post('jenis_bencana');
 
 		$data = array(
 			'nama_bencana' => $this->input->post('Bencana'),
 			'tanggal_bencana' => $this->input->post('Date'), 
-			'id_wilayah' => $this->input->post('Wilayah')
+			'id_wilayah' => $this->input->post('Wilayah'),
+			'jenis_bencana'=>$jenis_bencana
 		);
 
 		$this->form_validation->set_rules('Bencana', 'bencana', 'required');
@@ -55,6 +60,7 @@ class C_Bencana extends CI_Controller
 		} else {
 			echo $wilayah;
 		}
+	}
 	}
 
 	function bukaDetailBencana() {

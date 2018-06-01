@@ -22,6 +22,14 @@
 			$result=$this->bencana->namaBencana($id_bencana);
 			$this->load->view('user/v_detail_bencana_for_pelapor',compact('result'));
 		}
+		function tambahLaporan(){
+			if(!$_POST){
+				$this->load->view('user/v_tambah_laporan');
+
+			}else{
+				
+			}
+		}
 
 
 	}

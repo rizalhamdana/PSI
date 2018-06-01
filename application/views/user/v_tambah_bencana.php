@@ -14,6 +14,13 @@ $this->load->view('user/header')
 				<br>
 				<form action="<?= base_url('C_Bencana/tambahBencana')?>" method="post">
 					<p><input type="text" name="Bencana" placeholder="Nama Bencana" class="form-control"></p>
+					<p>Jenis Bencana: 
+						<select name="jenis_bencana" class="form-control">
+						<?php foreach ($jenis_bencana as $jenis) {?>
+							<option value="<?= $jenis->jenis_bencana ?>"><?php echo $jenis->jenis_bencana ?></option>
+						<?php } ?>
+
+					</select></p>
 					
 					<p>Wilayah Bencana: <select name="Wilayah" id="" class="form-control" style="max-width: 200px;">
 						

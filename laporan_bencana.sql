@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2018 at 02:06 PM
+-- Generation Time: Jun 01, 2018 at 09:25 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -30,16 +30,34 @@ CREATE TABLE `bencana` (
   `id_bencana` int(11) NOT NULL,
   `nama_bencana` varchar(100) NOT NULL,
   `tanggal_bencana` date NOT NULL,
-  `id_wilayah` int(11) NOT NULL
+  `id_wilayah` int(11) NOT NULL,
+  `jenis_bencana` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `bencana`
 --
 
-INSERT INTO `bencana` (`id_bencana`, `nama_bencana`, `tanggal_bencana`, `id_wilayah`) VALUES
-(6, 'Erupsi Gunung Merapi', '2018-05-24', 2),
-(7, 'Gempa Jogja', '2018-05-09', 2);
+INSERT INTO `bencana` (`id_bencana`, `nama_bencana`, `tanggal_bencana`, `id_wilayah`, `jenis_bencana`) VALUES
+(12, 'Erupsi Gunung Merapi', '2018-06-01', 2, 'Letusan Gunung Api');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jenisbencana`
+--
+
+CREATE TABLE `jenisbencana` (
+  `jenis_bencana` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jenisbencana`
+--
+
+INSERT INTO `jenisbencana` (`jenis_bencana`) VALUES
+('Letusan Gunung Api'),
+('Gempa Bumi');
 
 -- --------------------------------------------------------
 
@@ -74,7 +92,8 @@ CREATE TABLE `laporan` (
   `id_pengguna` int(11) NOT NULL,
   `id_wilayah` int(11) NOT NULL,
   `id_bencana` int(11) NOT NULL,
-  `id_kerusakan` int(11) NOT NULL
+  `id_kerusakan` int(11) NOT NULL,
+  `objek` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -98,7 +117,9 @@ CREATE TABLE `pengguna` (
 
 INSERT INTO `pengguna` (`id_pengguna`, `username`, `password`, `nama_pengguna`, `status_pengguna`, `id_wilayah`) VALUES
 (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'administrator', 1, 1),
-(3, 'pelapor', '2f87909b09f48de15ad99693f4d7f0b8', 'General User', 2, 2);
+(5, 'sptandi', '827ccb0eea8a706c4c34a16891f84e7b', 'Saputro Andi', 2, 5),
+(6, 'fazaraihan', 'e807f1fcf82d132f9bb018ca6738a19f', 'Faza Raihan', 2, 2),
+(7, 'rizalhamdan', '9ce389a88d98f56fa50e777e60c4ad9f', 'Rizal Hamdan Arigusti', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -192,12 +213,12 @@ ALTER TABLE `wilayah`
 -- AUTO_INCREMENT for table `bencana`
 --
 ALTER TABLE `bencana`
-  MODIFY `id_bencana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_bencana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `wilayah`
 --

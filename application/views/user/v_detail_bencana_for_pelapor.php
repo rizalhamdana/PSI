@@ -79,7 +79,7 @@
 				</tbody>
 				
 			</table>
-			<a href="#" class="btn btn-primary">Tambah Laporan</a>
+			<a href="<?= base_url('C_PelaporBencana/tambahLaporan')?>" class="btn btn-primary">Tambah Laporan</a>
 		</div>
 		</div>
 	</div>

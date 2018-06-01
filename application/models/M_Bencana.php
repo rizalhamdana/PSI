@@ -19,6 +19,16 @@ class M_Bencana extends CI_Model {
 		}
 	}
 
+	function getAllJenisBencana(){
+		$result=$this->db->get('JenisBencana');
+
+		if($result->num_rows()>0){
+			return $result->result();
+		}else{
+			return array();
+		}
+	}
+
 	function namaBencana($id_bencana) {
 		$result = $this->db->where('id_bencana', $id_bencana)
 							->limit(1)
