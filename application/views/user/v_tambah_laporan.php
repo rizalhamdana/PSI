@@ -26,22 +26,14 @@
  					</select>
  				</div>
  				<div class="row-input">
- 					<p>Kabupaten/Kota</p>
+ 					<p>Jenis Kerusakan</p>
  					<select name="" id="" class="form-control">
- 						<option value="">Kab Bantul</option>
- 						<option value="">Kab Sleman</option>
- 						<option value="">Kodya Yogyakarta</option>
+ 						<option value=""></option>
+ 						<option value=""></option>
+ 						<option value=""></option>
  					</select>
  				</div>
- 				<div class="row-input">
- 					<p>Kecamatan</p>
- 					<select name="" id="" class="form-control">
- 						<option value="">Kab Bantul</option>
- 						<option value="">Kab Sleman</option>
- 						<option value="">Kodya Yogyakarta</option>
- 					</select>
- 				</div>
-				
+ 				
 
  			</div>
  		</div>
