@@ -55,6 +55,34 @@
 				
 			}
 		}
+		function hapusLaporan($id_bencana){
+			$id_laporan=$this->input->get('id_laporan');
+			$this->laporan->deleteLaporan($id_laporan);
+			redirect(base_url('C_PelaporBencana/viewBencanaPelapor/'.$id_bencana));
+		}
+
+		function ubahLaporan($id_bencana){	
+			$id_laporan=$this->input->get('id_laporan');
+			if(!$_POST){
+				$hasil=$this->laporan->getLaporanSpesifik($id_laporan);
+				//print_r($hasil);
+				$jenis_rusak=$this->kerusakan->getAllKerusakan();
+				$this->load->view('user/v_form_update_laporan',compact('hasil','jenis_rusak','id_bencana','id_laporan'));
+			}else{
+				$id_laporan=$this->input->get('id_laporan');
+				$input=array(
+
+					'id_pengguna'=>$this->input->post('id_pengguna'),
+					'id_bencana'=>$this->input->post('id_bencana'),
+					'id_wilayah'=>$this->input->post('id_wilayah'),
+					'objek'=>$this->input->post('objek'),
+					'tanggal_laporan'=>$this->input->post('tanggal_laporan'),
+					'id_kerusakan'=>$this->input->post('id_kerusakan')
+				);
+				$this->laporan->updateLaporan($input,$id_laporan);
+				redirect(base_url('C_PelaporBencana/viewBencanaPelapor?id_bencana='.$this->input->post('id_bencana')));
+			}
+		}
 
 
 	}

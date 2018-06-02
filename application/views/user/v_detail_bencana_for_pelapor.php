@@ -69,7 +69,7 @@
 							<td><?php echo $laporan_user->objek ?></td>
 							<td><?php echo $laporan_user->jenis_kerusakan ?></td>
 							<td><?php echo $laporan_user->tanggal_laporan ?></td>
-							<td></td>
+							<td><a href="<?= base_url('C_PelaporBencana/ubahLaporan/'.$laporan_user->id_bencana.'?id_laporan='.$laporan_user->id_laporan)?>" class="btn btn-warning">Ubah</a>&nbsp <a href="<?= base_url('C_PelaporBencana/hapusLaporan/'.$laporan_user->id_bencana. '?id_laporan='.$laporan_user->id_laporan)?>" class="btn btn-danger">Hapus</a></td>
 							</tr>
 						<?php } ?>
 				
