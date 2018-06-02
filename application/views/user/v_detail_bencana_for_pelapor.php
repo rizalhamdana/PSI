@@ -57,31 +57,29 @@
 							<th scope="col">Lokasi</th>
 							<th scope="col">Objek Kerusakan</th>
 							<th scope="col">Jenis Kerusakan</th>
-							<th scope="col">Tanggal Lapor</th>
+							<th scope="col">Tanggal dan Waktu Lapor</th>
 							<th scope="col">Aksi</th>
 						</tr>
 				</thead>
 				<tbody class="table-cell">	
 					<tr>
-						<td>Isi</td>
-						<td>Isi</td>
-						<td>Isi</td>
-						<td>Isi</td>
-						<td>Isi</td>
-					</tr>
-					<tr>
-						<td>Isi</td>
-						<td>Isi</td>
-						<td>Isi</td>
-						<td>Isi</td>
-						<td>Isi</td>
+						<?php foreach($hasil_semua_laporan as $laporan_user){?>
+							<td><?php echo $laporan_user->nama_wilayah ?></td>
+							<td><?php echo $laporan_user->objek ?></td>
+							<td><?php echo $laporan_user->jenis_kerusakan ?></td>
+							<td><?php echo $laporan_user->tanggal_laporan ?></td>
+							<td></td>
+							
+						<?php } ?>
 					</tr>
 				</tbody>
 				
 			</table>
-			<a href="<?= base_url('C_PelaporBencana/tambahLaporan')?>" class="btn btn-primary">Tambah Laporan</a>
+			
 		</div>
+		<a href="<?= base_url('C_PelaporBencana/tambahLaporan?id_bencana=').$id_bencana;?>" class="btn btn-primary">Tambah Laporan</a>
 		</div>
+
 	</div>
 
 
