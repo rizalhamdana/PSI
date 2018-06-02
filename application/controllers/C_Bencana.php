@@ -66,7 +66,8 @@ class C_Bencana extends CI_Controller
 	function bukaDetailBencana() {
 		$id_bencana = $this->input->get('id_bencana');
 		$search = $this->bencana->namaBencana($id_bencana);
-		$this->load->view('user/v_dashboard_pelapor', compact('search'));
+		$laporan = $this->bencana->getLaporanBencana($id_bencana);
+		$this->load->view('user/v_dashboard_pelapor', compact('search', 'laporan'));
 	}
 
 }

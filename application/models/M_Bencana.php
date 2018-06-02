@@ -45,6 +45,17 @@ class M_Bencana extends CI_Model {
 			return array();
 		}
 	}
+
+	//join table dari laporan detail bencana
+	function getLaporanBencana($id_bencana){	
+		$result=$this->db->select('*')
+				->from('laporan l')
+				->join('pengguna p', 'p.id_pengguna=l.id_pengguna')
+				->join('kerusakan k', 'k.id_kerusakan=l.id_kerusakan')
+				->where('id_bencana', $id_bencana)
+				->get();
+		return $result->result();
+	}
 }
 
 ?>

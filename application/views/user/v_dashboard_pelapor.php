@@ -110,28 +110,23 @@
 	      			<table class="table table-hover">
 		              <thead>
 		                <tr>
-		                  <th>Nama</th>
-		                  <th>Username</th>
+		                  <th>Pelapor</th>
+		                  <th>Objek</th>
+		                  <th>Kerusakan</th>
+		                  <th>Tanggal Laporan</th>
 		                </tr>
 		              </thead>
+		              <?php foreach ($laporan as $lap) {?>
 		              <tbody>
 		                <tr>
-		                  <td>Lorem</td>
-		                  <td>ipsum</td>
+		                  <td><?= $lap->nama_pengguna ?></td>
+		                  <td><?= $lap->objek ?></td>
+		                  <td><?= $lap->jenis_kerusakan ?></td>
+		                  <td><?= $lap->tanggal_laporan?></td>
 		                </tr>
-		              
-
-				                <tr>
-		                  <td>1,002</td>
-		                  <td>amet</td>
-		                </tr>
-		                <tr>
-		                  <td>1,002</td>
-		                  <td>amet</td>
-		                </tr>
-
 		              </tbody>
-		            </table>	
+		              <?php } ?>	
+		            </table>
 	      			</div>
 	      		</div>	
 	      		</div>	
