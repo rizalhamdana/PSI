@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2018 at 09:25 AM
+-- Generation Time: Jun 02, 2018 at 02:06 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -39,7 +39,7 @@ CREATE TABLE `bencana` (
 --
 
 INSERT INTO `bencana` (`id_bencana`, `nama_bencana`, `tanggal_bencana`, `id_wilayah`, `jenis_bencana`) VALUES
-(12, 'Erupsi Gunung Merapi', '2018-06-01', 2, 'Letusan Gunung Api');
+(13, 'Erupsi Gunung Merapi', '2018-06-01', 2, 'Letusan Gunung Api');
 
 -- --------------------------------------------------------
 
@@ -67,9 +67,17 @@ INSERT INTO `jenisbencana` (`jenis_bencana`) VALUES
 
 CREATE TABLE `kerusakan` (
   `id_kerusakan` int(11) NOT NULL,
-  `jenis_kerusakan` int(11) NOT NULL,
-  `objek_kerusakan` int(11) NOT NULL
+  `jenis_kerusakan` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kerusakan`
+--
+
+INSERT INTO `kerusakan` (`id_kerusakan`, `jenis_kerusakan`) VALUES
+(1, 'Rusak Ringan'),
+(2, 'Rusak Sedang'),
+(3, 'Rusak Berat');
 
 -- --------------------------------------------------------
 
@@ -93,8 +101,17 @@ CREATE TABLE `laporan` (
   `id_wilayah` int(11) NOT NULL,
   `id_bencana` int(11) NOT NULL,
   `id_kerusakan` int(11) NOT NULL,
-  `objek` varchar(50) NOT NULL
+  `objek` varchar(50) NOT NULL,
+  `tanggal_laporan` datetime NOT NULL,
+  `id_laporan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `laporan`
+--
+
+INSERT INTO `laporan` (`id_pengguna`, `id_wilayah`, `id_bencana`, `id_kerusakan`, `objek`, `tanggal_laporan`, `id_laporan`) VALUES
+(7, 2, 13, 3, 'Fasilitas Kesehatan', '2018-06-02 18:34:37', 4);
 
 -- --------------------------------------------------------
 
@@ -181,6 +198,7 @@ ALTER TABLE `kerusakanspesifikasi`
 -- Indexes for table `laporan`
 --
 ALTER TABLE `laporan`
+  ADD PRIMARY KEY (`id_laporan`),
   ADD KEY `id_pengguna` (`id_pengguna`),
   ADD KEY `id_wilayah` (`id_wilayah`),
   ADD KEY `id_bencana` (`id_bencana`),
@@ -213,7 +231,12 @@ ALTER TABLE `wilayah`
 -- AUTO_INCREMENT for table `bencana`
 --
 ALTER TABLE `bencana`
-  MODIFY `id_bencana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_bencana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `laporan`
+--
+ALTER TABLE `laporan`
+  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
@@ -245,9 +268,10 @@ ALTER TABLE `kerusakanspesifikasi`
 -- Constraints for table `laporan`
 --
 ALTER TABLE `laporan`
-  ADD CONSTRAINT `laporan_ibfk_4` FOREIGN KEY (`id_kerusakan`) REFERENCES `kerusakan` (`id_kerusakan`),
-  ADD CONSTRAINT `laporan_ibfk_5` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id_pengguna`),
-  ADD CONSTRAINT `laporan_ibfk_6` FOREIGN KEY (`id_bencana`) REFERENCES `bencana` (`id_bencana`);
+  ADD CONSTRAINT `laporan_ibfk_1` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id_pengguna`),
+  ADD CONSTRAINT `laporan_ibfk_2` FOREIGN KEY (`id_wilayah`) REFERENCES `wilayah` (`id_wilayah`),
+  ADD CONSTRAINT `laporan_ibfk_3` FOREIGN KEY (`id_bencana`) REFERENCES `bencana` (`id_bencana`),
+  ADD CONSTRAINT `laporan_ibfk_4` FOREIGN KEY (`id_kerusakan`) REFERENCES `kerusakan` (`id_kerusakan`);
 
 --
 -- Constraints for table `pengguna`
