@@ -62,16 +62,17 @@
 						</tr>
 				</thead>
 				<tbody class="table-cell">	
-					<tr>
+					
 						<?php foreach($hasil_semua_laporan as $laporan_user){?>
+							<tr>
 							<td><?php echo $laporan_user->nama_wilayah ?></td>
 							<td><?php echo $laporan_user->objek ?></td>
 							<td><?php echo $laporan_user->jenis_kerusakan ?></td>
 							<td><?php echo $laporan_user->tanggal_laporan ?></td>
 							<td></td>
-							
+							</tr>
 						<?php } ?>
-					</tr>
+				
 				</tbody>
 				
 			</table>
