@@ -68,9 +68,11 @@ class C_Bencana extends CI_Controller
 
 	function bukaDetailBencana() {
 		$id_bencana = $this->input->get('id_bencana');
+		$dataChart=$this->chart->getDataChartKerusakan($id_bencana);
+		$dataBarChart=$this->chart->getDataBarChartObjek($id_bencana);
 		$search = $this->bencana->namaBencana($id_bencana);
 		$laporan = $this->bencana->getLaporanBencana($id_bencana);
-		$this->load->view('user/v_dashboard_pelapor', compact('search', 'laporan'));
+		$this->load->view('user/v_dashboard_pelapor', compact('search', 'laporan','dataChart','dataBarChart'));
 	}
 
 }

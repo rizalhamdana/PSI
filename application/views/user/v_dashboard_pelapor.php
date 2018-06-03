@@ -27,51 +27,75 @@
 	<?php $this->load->view('menu_nav') ?>
 	<div class="row">
 		<div class="col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
-	      	
-	      	
+	      	<?php foreach ($dataBarChart as $data) {
+	      		$data_diagramBar[]=$data->count_objek;
+	      		$objek[]=$data->objek;
+	      	} ?>
+	      	<?php foreach ($dataChart as $data) {
+	      		$data_diagram[]=$data->count_jenis_kerusakan;
+	      		$jenis_kerusakan[]=$data->jenis_kerusakan;
+	      	} ?>
 	      	<?php foreach ($search as $disaster) {?>
 			
 	      	<h1 class="page-header">
 	      		<?= $disaster->nama_bencana?>
 	      	<?php } ?></h1>
 	      	<div class="col-md-6 col-sm-6" >
-	      		<div class="card" style="padding: 50px 50px;">
-				<canvas width="10" height="8" id="myLineChart" class=""></canvas>
+	      		<div class="card" style="padding: 10px 10px;">
+				<canvas width="10" height="8" id="myChart" class=""></canvas>
 	      		<script>	
-	      			var ctx = document.getElementById('myLineChart').getContext('2d');
-					var chart = new Chart(ctx, {
-    				// The type of chart we want to create
-		    		type: 'line',
-
-  				  // The data for our dataset
-    				data: {
-       				 labels: ["January", "February", "March", "April", "May", "June", "July"],
-        			datasets: [{
-            			label: "My First dataset",
-            			backgroundColor: 'rgb(255, 99, 132)',
-            			borderColor: 'rgb(255, 99, 132)',
-            			data: [0, 10, 5, 2, 20, 30, 45],
-        				}]
+	      			var ctx = document.getElementById("myChart").getContext('2d');
+					var myChart = new Chart(ctx, {
+    					type: 'bar',
+    					data: {
+        					labels: <?php echo json_encode($objek)?>,
+        					datasets: [{
+           						label: '# of Votes',
+            					data: <?php echo json_encode($data_diagramBar)?>,
+            					backgroundColor: [
+                				'rgba(255, 99, 132)',
+                				'rgba(54, 162, 235)',
+                				'rgba(255, 206, 86)',
+               				 	'rgba(75, 192, 192)',
+                				'rgba(153, 102, 255)',
+                				'rgba(255, 159, 64)'
+            				],
+            				borderColor: [
+                			'rgba(255,99,132,1)',
+                			'rgba(54, 162, 235, 1)',
+               			 	'rgba(255, 206, 86, 1)',
+                			'rgba(75, 192, 192, 1)',
+                			'rgba(153, 102, 255, 1)',
+                			'rgba(255, 159, 64, 1)'
+            				],
+            				borderWidth: 1
+       				 }]
     				},
-
-    				// Configuration options go here
-    				options: {}
-					});
+   				options: {
+       			 	scales: {
+          			  yAxes: [{
+             		   ticks: {
+                		    beginAtZero:true
+               			 }
+            			}]
+        			}
+    			}
+});
 	      		</script>	
 	      		</div>
 	      		</div>
 	      	<div class="col-md-6 col-sm-6">
-	      		<div class="card" style="padding: 50px 50px;">
+	      		<div class="card" style="padding: 10px 10px;">
 				<canvas width="10" height="8" id="myBarChart" class=""></canvas>
 				 <script>
 					var ctx = document.getElementById("myBarChart");
 					var myChart = new Chart(ctx, {
     					type: 'doughnut',
    						data: {
-       						labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+       						labels:<?php echo json_encode($jenis_kerusakan)?>,
        						datasets: [{
            						label: '# of Votes',
-           						data: [12, 19, 3, 5, 2, 3],
+           						data: <?php echo json_encode($data_diagram)?>,
             					backgroundColor: [
                 					'rgba(255, 99, 132, 1)',
                						'rgba(54, 162, 235, 1)',
