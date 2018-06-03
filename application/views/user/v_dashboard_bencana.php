@@ -38,6 +38,13 @@
 			
 
 	}
+	.bar-char{
+		border-radius: 8px;
+		 -moz-box-shadow : 5px 5px 20px #e6eaee;
+  		-webkit-box-shadow : 5px 5px 13px #e6eaee;
+ 		 box-shadow : 8px 8px 10px #e6eaee;
+ 		 padding: 50px 50px;
+	}
 </style>
 <body>
 	<?php $this->load->view('menu_nav') ?>
@@ -71,34 +78,25 @@
 	      		<?php 
 	      			foreach ($dataChart as $dataChart) {
 	      				$jenis_bencana[]=$dataChart->jenis_bencana;
-	      				$jumlahBencana[]=$dataChart->jumlah_bencana;
+	      				$jumlahBencana[]= (integer) $dataChart->jumlah_bencana;
 	      				//print_r($dataChart);
 	      			}
 	      		 ?>
 	      	<div class="col-md-12 col-sm-12">
-	      		<div class="">
+	      		<div class="bar-char">
 				<canvas width="10" height="3" id="myBarChart" class=""></canvas>
 				 <script>
-
+					var steps = 1;
 					var ctx = $("#myBarChart");
 					var myChart = new Chart(ctx, {
+						
     					type: 'bar',
    						data: {
        						labels: <?php echo json_encode($jenis_bencana)?>,
        						datasets:[{
            						data: <?php echo json_encode($jumlahBencana);?> ,
-            					backgroundColor: [
-                					'rgba(255, 99, 132, 1)',
-               						'rgba(54, 162, 235, 1)',
-           							'rgba(255, 206, 86, 1)'
-           							
-            					],
-           						borderColor: [
-       					   	 	    'rgba(255,99,132,1)',
-                					'rgba(54, 162, 235, 1)',
-                					'rgba(255, 206, 86, 1)'
-                					
-            					],
+            					backgroundColor:'rgba(255,99,132,1)',
+           						
             					borderWidth: 1
         					}]
     					},
@@ -106,7 +104,8 @@
         						scales: {
             						yAxes: [{
 		          						ticks: {
-        	            					beginAtZero:true
+        	            					beginAtZero:true,
+        	            					callback: function(value) {if (value % 1 === 0) {return value;}}
            								}
        								}]
        							}

@@ -34,9 +34,9 @@
 	      	<h1 class="page-header">
 	      		<?= $disaster->nama_bencana?>
 	      	<?php } ?></h1>
-	      	<div class="col-md-6 col-sm-6">
-	      		<div class="card">
-				<canvas width="10" height="5" id="myLineChart" class=""></canvas>
+	      	<div class="col-md-6 col-sm-6" >
+	      		<div class="card" style="padding: 50px 50px;">
+				<canvas width="10" height="8" id="myLineChart" class=""></canvas>
 	      		<script>	
 	      			var ctx = document.getElementById('myLineChart').getContext('2d');
 					var chart = new Chart(ctx, {
@@ -61,12 +61,12 @@
 	      		</div>
 	      		</div>
 	      	<div class="col-md-6 col-sm-6">
-	      		<div class="card">
-				<canvas width="10" height="5" id="myBarChart" class=""></canvas>
+	      		<div class="card" style="padding: 50px 50px;">
+				<canvas width="10" height="8" id="myBarChart" class=""></canvas>
 				 <script>
 					var ctx = document.getElementById("myBarChart");
 					var myChart = new Chart(ctx, {
-    					type: 'bar',
+    					type: 'doughnut',
    						data: {
        						labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
        						datasets: [{
@@ -92,20 +92,14 @@
         					}]
     					},
   							options: {
-        						scales: {
-            						yAxes: [{
-		          						ticks: {
-        	            					beginAtZero:true
-           								}
-       								}]
-       							}
+        						
    							}
 					});
 				</script>
 	   		</div>
 	   		</div>
 	   		<div class="row">
-	      		<div class="col-md-12">
+	      		<div class="col-md-12" style="margin-top: 30px;">
 	      			<div class="table-responsive">
 	      			<table class="table table-hover">
 		              <thead>
