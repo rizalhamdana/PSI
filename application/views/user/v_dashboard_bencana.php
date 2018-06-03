@@ -68,43 +68,25 @@
 	      			
 	      		</div>
 	      		<div class="col-md-12">
-	      			<div class="col-md-6 col-sm-6">
+	      		<?php 
+	      			foreach ($dataChart as $dataChart) {
+	      				$jenis_bencana[]=$dataChart->jenis_bencana;
+	      				$jumlahBencana[]=$dataChart->jumlah_bencana;
+	      				//print_r($dataChart);
+	      			}
+	      		 ?>
+	      	<div class="col-md-12 col-sm-12">
 	      		<div class="">
-				<canvas width="10" height="5" id="myLineChart" class=""></canvas>
-	      		<script>	
-	      			var ctx = document.getElementById('myLineChart').getContext('2d');
-					var chart = new Chart(ctx, {
-    				// The type of chart we want to create
-		    		type: 'line',
-
-  				  // The data for our dataset
-    				data: {
-       				 labels: ["January", "February", "March", "April", "May", "June", "July"],
-        			datasets: [{
-            			label: "My First dataset",
-            			backgroundColor: 'rgb(255, 99, 132)',
-            			borderColor: 'rgb(255, 99, 132)',
-            			data: [0, 10, 5, 2, 20, 30, 45],
-        				}]
-    				},
-
-    				// Configuration options go here
-    				options: {}
-					});
-	      		</script>	
-	      		</div>
-	      		</div>
-	      	<div class="col-md-6 col-sm-6">
-	      		<div class="">
-				<canvas width="10" height="5" id="myBarChart" class=""></canvas>
+				<canvas width="10" height="3" id="myBarChart" class=""></canvas>
 				 <script>
-					var ctx = document.getElementById("myBarChart");
+
+					var ctx = $("#myBarChart");
 					var myChart = new Chart(ctx, {
     					type: 'bar',
    						data: {
-       						labels: ["Rusak Ringan", "Rusak Sedang", "Rusak Berat"],
-       						datasets: [{
-           						data: [100, 200, 90],
+       						labels: <?php echo json_encode($jenis_bencana)?>,
+       						datasets:[{
+           						data: <?php echo json_encode($jumlahBencana);?> ,
             					backgroundColor: [
                 					'rgba(255, 99, 132, 1)',
                						'rgba(54, 162, 235, 1)',

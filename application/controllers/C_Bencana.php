@@ -14,11 +14,14 @@ class C_Bencana extends CI_Controller
 		$this->load->model('M_Bencana','bencana');
 		$this->load->model('M_Wilayah','wilayah');
 		$this->load->model('M_Users','user');
+		$this->load->model('M_Chart','chart');
 	}
 	function index(){
 		if($this->session->has_userdata('username')){
 			$bencana=$this->bencana->getBencana();
-			$this->load->view('user/v_dashboard_bencana', compact('bencana'));			
+			$dataChart=$this->chart->getDataChartdJenisBencana();
+			//print_r($dataChart);
+			$this->load->view('user/v_dashboard_bencana', compact('bencana','dataChart'));			
 		}else{
 			redirect('C_Users');
 		}
