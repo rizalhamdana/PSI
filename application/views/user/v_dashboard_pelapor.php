@@ -40,9 +40,9 @@
 	      	<h1 class="page-header">
 	      		<?= $disaster->nama_bencana?>
 	      	<?php } ?></h1>
-	      	<div class="col-md-6 col-sm-6" >
-	      		<div class="card" style="padding: 10px 10px;">
-				<canvas width="10" height="8" id="myChart" class=""></canvas>
+	      	<div class="col-md-7 col-sm-7" >
+	      		<div class="card" style="padding:10px 10px;">
+				<canvas width="10" height="7" id="myChart" class=""></canvas>
 	      		<script>	
 	      			var ctx = document.getElementById("myChart").getContext('2d');
 					var myChart = new Chart(ctx, {
@@ -75,7 +75,8 @@
        			 	scales: {
           			  yAxes: [{
              		   ticks: {
-                		    beginAtZero:true
+                		    beginAtZero:true,
+        	            					callback: function(value) {if (value % 1 === 0) {return value;}}
                			 }
             			}]
         			}
@@ -84,9 +85,9 @@
 	      		</script>	
 	      		</div>
 	      		</div>
-	      	<div class="col-md-6 col-sm-6">
+	      	<div class="col-md-5 col-sm-5">
 	      		<div class="card" style="padding: 10px 10px;">
-				<canvas width="10" height="8" id="myBarChart" class=""></canvas>
+				<canvas width="11" height="11" id="myBarChart" class=""></canvas>
 				 <script>
 					var ctx = document.getElementById("myBarChart");
 					var myChart = new Chart(ctx, {
