@@ -2,132 +2,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Dashboard</title>
-	<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> <META HTTP-EQUIV="Expires" CONTENT="-1"> 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-		<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<!-- "?ts=<?=time()?>" digunakan untuk update css di browser setiap css diubah-->
-	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/style/dashboard/ben.css?ts=<?=time()?>')?>">
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script src="http://www.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-	
+	<?php $this->load->view('user/header'); ?>
 </head>
-<style>
-	.thumb-slot{
-		background: ;
-		margin: 10px 10px;
-		box-shadow: 8px 8px 10px #e6eaee;
-		max-width: 300px;
-	
-	}
-	 .caption > h3{
-			
-
-	}
-	.bar-char{
-		border-radius: 8px;
-		 -moz-box-shadow : 5px 5px 20px #e6eaee;
-  		-webkit-box-shadow : 5px 5px 13px #e6eaee;
- 		 box-shadow : 8px 8px 10px #e6eaee;
- 		 padding: 50px 50px;
-	}
-</style>
-<body>
+<body class="fix-header">
+    <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+    
+    <!-- ============================================================== -->
+    <!-- Sidebar + Navbar -->
+    <!-- ============================================================== -->
 	<?php $this->load->view('menu_nav') ?>
-	<div class="row">
-		<div class="col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
-	      	<div class="row">
-	      		<div class="col-md-12 col-sm-12">
-				    
-				    <a href="<?= base_url('C_Bencana/tambahBencana');?>"><input class="btn btn-primary tambah-slot" type="submit" value="Tambah Slot Laporan Bencana"></a>
-				    
-				</div>
-	      	</div>
-	      	<div class="col-md-6 col-sm-6">			
-	   		</div>
 
-	   		<div class="row">
-	      		<div class="col-md-12 col-sm-12" style="margin-bottom: 50px;">
-	      			<div class="row" style="">
-	      				<?php foreach ($bencana as $disaster) {?>
-	      			
-	      				<div class="col-md-4 thumbnail thumb-slot">
-	      					<div class="caption">
-	      						<h3 class="text-center"><a href="<?= base_url('C_Bencana/bukaDetailBencana?id_bencana='.$disaster->id_bencana);?>"><?= $disaster->nama_bencana?></a></h3>
-	      					</div>
-	      				</div>
-	      				<?php } ?>
-	      			</div>
-	      			
-	      		</div>
-	      		<div class="col-md-12">
-	      		<?php 
-	      			foreach ($dataChart as $dataChart) {
-	      				$jenis_bencana[]=$dataChart->jenis_bencana;
-	      				$jumlahBencana[]= (integer) $dataChart->jumlah_bencana;
-	      				//print_r($dataChart);
-	      			}
-	      		 ?>
-	      	<div class="col-md-12 col-sm-12">
-	      		<div class="bar-char">
-				<canvas width="10" height="3" id="myBarChart" class=""></canvas>
-				 <script>
-					var steps = 1;
-					var ctx = $("#myBarChart");
-					var myChart = new Chart(ctx, {
-						
-    					type: 'bar',
-   						data: {
-       						labels: <?php echo json_encode($jenis_bencana)?>,
-       						datasets:[{
-           						data: <?php echo json_encode($jumlahBencana);?> ,
-            					backgroundColor:'rgba(255,99,132,1)',
-           						
-            					borderWidth: 1
-        					}]
-    					},
-  							options: {
-        						scales: {
-            						yAxes: [{
-		          						ticks: {
-        	            					beginAtZero:true,
-        	            					callback: function(value) {if (value % 1 === 0) {return value;}}
-           								}
-       								}]
-       							}
-   							}
-					});
-				</script>
-	   		</div>
-	   		</div>
-	      		</div>	
-
-	      		<!--<ul class="pagination">
-						  <li class="active"><a href="#">1</a></li>
-						  <li><a href="#">2</a></li>
-						  <li><a href="#">3</a></li>
-						  <li><a href="#">4</a></li>
-						  <li><a href="#">5</a></li>
-					</ul>-->
-
-	      	</div>
-
-	  	</div>
-
-	</div>
+	<!-- ============================================================== -->
+    <!-- Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page Content -->
+    <!-- ============================================================== -->
+    <div id="wrapper">
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Dashboard</h4> 
+                    </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                        <a href="https://wrappixel.com/templates/ampleadmin/" target="_blank" class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">Tambah Bencana</a>
+                        <ol class="breadcrumb">
+                            <li class="active">Dashboard</li>
+                            <!--<li class="active">Blank Page</li>-->
+                        </ol>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                    	<?php 
+			      			foreach ($dataChart as $dataChart) {
+			      				$jenis_bencana[]=$dataChart->jenis_bencana;
+			      				$jumlahBencana[]= (integer) $dataChart->jumlah_bencana;
+			      			}
+			      		?>
+                        <div class="white-box">
+                            <h3 class="box-title">Jumlah Bencana</h3> 
+							<div class="bar-char">
+							<canvas width="13" height="3" id="myBarChart" class=""></canvas>
+							 	<script>
+									var steps = 1;
+									var ctx = $("#myBarChart");
+									var myChart = new Chart(ctx, {
+				    					type: 'bar',
+				   						data: {
+				       						labels: <?php echo json_encode($jenis_bencana)?>,
+				       						datasets:[{
+				           						data: <?php echo json_encode($jumlahBencana);?> ,
+				            					backgroundColor:'rgba(255,99,132,1)',
+				           						
+				            					borderWidth: 1
+				        					}]
+				    					},
+				  							options: {
+				        						scales: {
+				            						yAxes: [{
+						          						ticks: {
+				        	            					beginAtZero:true,
+				        	            					callback: function(value) {if (value % 1 === 0) {return value;}}
+				           								}
+				       								}]
+				       							}
+				   							}
+									});
+								</script>
+				   			</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page Content -->
+        <!-- ============================================================== -->
+    </div>
+	<!-- /#wrapper -->
 </body>
 </html>
