@@ -38,7 +38,7 @@
                 </div>
                 <div class="row">
                     <div class="white-box">
-                            <form class="form-horizontal form-material">
+                            <form class="form-horizontal form-material" action="<?php echo base_url('C_Users/EditDataPelapor') ?>" method="post">
                                 <div class="form-group">
                                     <label class="col-md-12">Nama Lengkap</label>
                                     <div class="col-md-12">

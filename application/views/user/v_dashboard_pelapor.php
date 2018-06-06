@@ -34,7 +34,11 @@
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <ol class="breadcrumb">
                             <li><a href="<?= base_url('C_Bencana/index');?>">Dashboard</a></li>
-                            <li class="active">Pelapor</li>
+                            <li class="active">
+                            	<?php foreach ($search as $disaster) {?>
+				      				<?= $disaster->nama_bencana?>
+				      			<?php } ?>
+				      		</li>
                         </ol>
                     </div>
                     <!-- /.col-lg-12 -->

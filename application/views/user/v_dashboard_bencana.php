@@ -28,7 +28,7 @@
                         <h4 class="page-title">Dashboard</h4> 
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-                        <a href="https://wrappixel.com/templates/ampleadmin/" target="_blank" class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">Tambah Bencana</a>
+                        <a href="<?= base_url('C_Bencana/tambahBencana');?>" class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">Tambah Bencana</a>
                         <ol class="breadcrumb">
                             <li class="active">Dashboard</li>
                             <!--<li class="active">Blank Page</li>-->

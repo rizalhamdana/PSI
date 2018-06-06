@@ -23,7 +23,7 @@
                 <!-- /Logo -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
                     <li>
-                        <a class="profile-pic" href="#"> <img src="<?= base_url('assets/images/users/varun.jpg?ts=<?=time()?>')?>" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Steave</b></a>
+                        <a class="profile-pic" href="<?= base_url('C_Users/logout');?>"> <img src="<?= base_url('assets/images/users/varun.jpg?ts=<?=time()?>')?>" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Steave</b></a>
                     </li>
                 </ul>
             </div>

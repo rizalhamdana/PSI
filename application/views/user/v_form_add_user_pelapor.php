@@ -31,14 +31,14 @@
                         <ol class="breadcrumb">
                             <li><a href="<?= base_url('C_Bencana/index');?>">Dashboard</a></li>
                             <li><a href="<?= base_url('C_Bencana/tampilPelapor');?>">Pelapor</a></li>
-                            <li class="active">Edit Pelapor</li>
+                            <li class="active">Tambah Pelapor</li>
                         </ol>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <div class="row">
                     <div class="white-box">
-                            <form class="form-horizontal form-material">
+                            <form class="form-horizontal form-material" action="<?php echo base_url ('C_Users/addUserPelapor')?>" method="post">
                                 <div class="form-group">
                                     <label class="col-md-12">Nama Lengkap</label>
                                     <div class="col-md-12">
@@ -65,7 +65,7 @@
                                 <div class="form-group">
                                     <label class="col-md-12">Password</label>
                                     <div class="col-md-12">    
-                                        <input type="password" value="password" class="form-control form-control-line">
+                                        <input type="password" class="form-control form-control-line">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -73,6 +73,7 @@
                                         <button class="btn btn-success">Simpan</button>
                                     </div>
                                 </div>
+                                <input type="hidden" name="status_pengguna" value="2">
                             </form>
                         </div>
                 </div>

@@ -28,8 +28,8 @@
                         <h4 class="page-title">Daftar Pelapor</h4> 
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                        <a href="<?= base_url('C_Users/addUserPelapor');?>" class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">Tambah Pelapor</a>
                         <ol class="breadcrumb">
-                            <a href="<?php echo base_url('C_Users/addUserPelapor')?>" class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">Tambah Pelapor</a>
                             <li><a href="<?= base_url('C_Bencana/index');?>">Dashboard</a></li>
                             <li class="active">Pelapor</li>
                         </ol>
