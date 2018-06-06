@@ -37,6 +37,15 @@
                     <!-- /.col-lg-12 -->
                 </div>
                 <div class="row">
+                    <div class="col-md-3">
+                        <?php foreach ($bencana as $disaster) {?>
+                        <div class="white-box">
+                            <div class="caption">
+                                <h3 class="text-center"><a href="<?= base_url('C_Bencana/bukaDetailBencana?id_bencana='.$disaster->id_bencana);?>"><?= $disaster->nama_bencana?></a></h3>
+                            </div>
+                        </div>
+                        <?php } ?>
+                    </div>
                     <div class="col-md-12">
                     	<?php 
 			      			foreach ($dataChart as $dataChart) {
