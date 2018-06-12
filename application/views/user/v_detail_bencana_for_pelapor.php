@@ -9,25 +9,21 @@
 	}
 </style>
 <body class="dashboard-pelapor">
-<nav class="navbar navbar-default navbar-static-top col-md-12 col-sm-12">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a href="#" class="navbar-brand">CrashReport</a>
-				</div>
-				<div class="collapse navbar-collapse">
-					<ul class="nav navbar-nav">
-						<li><a href=""></a></li>
-						<li><a href=""></a></li>
-						<li><a href=""></a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
-						<li><a href="<?= base_url('C_Users/logout');?>"><span class="glyphicon glyphicon-log-out"></span></a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-<div class="container">
+<nav class="navbar navbar-default navbar-static-top m-b-0" >
+            <div class="navbar-header" style="background-color: #4286f4">
+                
+                <!-- /Logo -->
+                <ul class="nav navbar-top-links navbar-right pull-right">
+                    <li>
+                        <a class="profile-pic" href="<?= base_url('C_Users/logout');?>"><b class="hidden-xs">Logout</b></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-header -->
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-static-side -->
+        </nav>
+<div class="container" style="padding: 50px 0;">
 	<a href="<?php echo base_url('C_PelaporBencana')?>" class="btn btn-primary">Kembali ke Halaman Utama</a>
 	<div class="row">
 		<?php 
@@ -47,11 +43,12 @@
 				
 		<?php } ?>
 	</div>
-	<div class="row">	
+	<div class="container">
+		<div class="row">	
 		<div class="col col-md-12 col-sm-12">	
-			<h2 style="font-weight: bolder; margin-bottom: 50px;">Laporan Anda</h2>
-			<div class="table-responsive">
-			<table class="table" style="">	
+			<h2 style="font-weight: bolder; margin-bottom: 50px; color: white;">Laporan Anda</h2>
+			<div class="table-responsive" style="overflow: auto;">
+			<table class="table">	
 				<thead class="table-cell dark-navy" style="">	
 						<tr>	
 							<th scope="col">Lokasi</th>
@@ -82,6 +79,8 @@
 		</div>
 
 	</div>
+	</div>
+	
 
 
 </div>

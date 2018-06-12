@@ -2,8 +2,8 @@
 		<!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        <nav class="navbar navbar-default navbar-static-top m-b-0">
-            <div class="navbar-header">
+        <nav class="navbar navbar-default navbar-static-top m-b-0" >
+            <div class="navbar-header" >
                 <div class="top-left-part">
                     <!-- Logo -->
                     <a class="logo" href="index.html">
@@ -46,9 +46,12 @@
                     <li style="padding: 70px 0 0;">
                         <a href="<?= base_url('C_Bencana/index');?>" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Dashboard</a>
                     </li>
-                    <li>
+                    <?php if ($this->session->userdata('status_pengguna')=='1'): ?>
+                        <li>
                         <a href="<?= base_url('C_Bencana/tampilPelapor');?>" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Pelapor</a>
                     </li>
+                    
+                    <?php endif ?>
                     
 					<!--
                     <li>
