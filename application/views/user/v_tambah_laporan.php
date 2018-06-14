@@ -31,12 +31,16 @@
  						</select>
  					</div>
  					<div class="row-input">
- 						<p>Jenis Kerusakan</p>
- 						<select name="id_kerusakan" id="" class="form-control">
- 							<?php foreach ($jenis_rusak as $kerusakan ): ?>
- 								<option value="<?=$kerusakan->id_kerusakan?>"><?= $kerusakan->jenis_kerusakan ?></option>
- 							<?php endforeach ?>
- 						</select>
+ 						<p>Persentase Kerusakan Komponen Struktur Bangunan</p>
+ 						<input type="text" class="form-control" name="komponenStruktur">
+ 					</div>
+ 					<div class="row-input">
+ 						<p>Persentase Kerusakan Komponen Penunjang Bangunan</p>
+ 						<input type="text" class="form-control" name="komponenPenunjang">
+ 					</div>
+ 					<div class="row-input">
+ 						<p>Lokasi</p>
+ 						<textarea name="lokasi"  cols="30" rows="10" class="form-control"></textarea>
  					</div>
  					<div class="row-input">
  						<input type="submit" class="btn btn-primary">

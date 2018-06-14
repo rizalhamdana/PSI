@@ -12,6 +12,7 @@
 			$this->load->model('M_Bencana','bencana');
 			$this->load->model('M_Kerusakan','kerusakan');
 			$this->load->model('M_Laporan','laporan');
+			$this->load->model('M_SCPK','scpk');
 		}
 		function index(){
 			$id_wilayah=$this->session->userdata('id_wilayah');
@@ -43,11 +44,21 @@
 				$this->load->view('user/v_tambah_laporan',compact('jenis_rusak','id_bencana'));
 
 			}else{
-				$input=(object) $this->input->post();
+				$persenStruktur=$this->input->post('komponenStruktur');
+				$persenPenunjang=$this->input->post('komponenPenunjang');
+				$jenisKerusakan=$this->scpk->hitungFuzzy($persenStruktur,$persenPenunjang);
+				$input = array('id_pengguna' => $this->input->post('id_pengguna') ,
+								'id_wilayah' => $this->input->post('id_wilayah'),
+								'id_bencana'=> $this->input->post('id_bencana'),
+								'objek'=>$this->input->post('objek'),
+								'tanggal_laporan'=>$this->input->post('tanggal_laporan'),
+								'id_kerusakan'=>$jenisKerusakan,
+								'lokasi'=>$this->input->post('lokasi')
+						 );
 				//print_r($input);
 				$berhasil=$this->laporan->insertLaporan($input);
 				if($berhasil){
-					$url=base_url().'C_PelaporBencana/viewBencanaPelapor/'.$input->id_bencana;
+					$url=base_url().'C_PelaporBencana/viewBencanaPelapor?id_bencana='.$input['id_bencana'];
 					redirect($url);
 				}else{
 					echo "gagal";
@@ -70,6 +81,9 @@
 				$this->load->view('user/v_form_update_laporan',compact('hasil','jenis_rusak','id_bencana','id_laporan'));
 			}else{
 				$id_laporan=$this->input->get('id_laporan');
+				$persenStruktur=$this->input->post('komponenStruktur');
+				$persenPenunjang=$this->input->post('komponenPenunjang');
+				$jenisKerusakan=$this->scpk->hitungFuzzy($persenStruktur,$persenPenunjang);
 				$input=array(
 
 					'id_pengguna'=>$this->input->post('id_pengguna'),
@@ -77,7 +91,8 @@
 					'id_wilayah'=>$this->input->post('id_wilayah'),
 					'objek'=>$this->input->post('objek'),
 					'tanggal_laporan'=>$this->input->post('tanggal_laporan'),
-					'id_kerusakan'=>$this->input->post('id_kerusakan')
+					'lokasi'=>$this->input->post('lokasi'),
+					'id_kerusakan'=>$jenisKerusakan
 				);
 				$this->laporan->updateLaporan($input,$id_laporan);
 				redirect(base_url('C_PelaporBencana/viewBencanaPelapor?id_bencana='.$this->input->post('id_bencana')));

@@ -134,10 +134,10 @@ class M_SCPK extends CI_Model
 
 			if($nilaiKerusakanRingan>$nilaiKerusakanBerat){
 				//echo "Rusak Ringan";
-				return 3;
+				return 1;
 			}else{
 				//echo "Rusak Berat";
-				return 1;
+				return 3;
 			}
 
 		}
