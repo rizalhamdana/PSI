@@ -19,10 +19,10 @@ class C_Users extends CI_Controller
 				}else{
 					redirect('C_PelaporBencana');
 				}
-		}else{
-			$this->load->view('user/v_login');	
 		}
-		
+		else{
+			$this->load->view('user/v_login');	
+		}		
 	}
 
 	public function login(){
@@ -44,8 +44,8 @@ class C_Users extends CI_Controller
 		}else{
 			redirect('C_Bencana');
 		}
-
 	}
+
 	public function logout(){
 		if(!$this->session->has_userdata('id_pengguna')){
 			redirect('C_Users');
@@ -54,6 +54,7 @@ class C_Users extends CI_Controller
 			redirect('C_Users');
 		}
 	}
+	
 	public function addUserPelapor(){
 		if(!$_POST){
 			$allWilayah=$this->wilayah->getAllWilayah();

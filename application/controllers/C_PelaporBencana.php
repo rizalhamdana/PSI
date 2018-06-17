@@ -14,10 +14,15 @@
 			$this->load->model('M_Laporan','laporan');
 			$this->load->model('M_SCPK','scpk');
 		}
+
 		function index(){
-			$id_wilayah=$this->session->userdata('id_wilayah');
-			$result=$this->bencana->getBencanaPelapor($id_wilayah);
-			$this->load->view('user/v_pelapor_index',compact('result'));
+			if($this->session->has_userdata('username')){
+				$id_wilayah=$this->session->userdata('id_wilayah');
+				$result=$this->bencana->getBencanaPelapor($id_wilayah);
+				$this->load->view('user/v_pelapor_index',compact('result'));
+			}else{
+				redirect('C_Users/index');
+			}	
 		}
 
 		function viewBencanaPelapor($bencana=null){
@@ -32,6 +37,7 @@
 			//print_r($hasil_semua_laporan);
 			$this->load->view('user/v_detail_bencana_for_pelapor',compact('result','id_bencana','hasil_semua_laporan'));
 		}
+
 		function tambahLaporan($bencana=null){
 			if($bencana==null){
 				$id_bencana=$this->input->get('id_bencana');
@@ -66,6 +72,7 @@
 				
 			}
 		}
+
 		function hapusLaporan($id_bencana){
 			$id_laporan=$this->input->get('id_laporan');
 			$this->laporan->deleteLaporan($id_laporan);
@@ -98,7 +105,5 @@
 				redirect(base_url('C_PelaporBencana/viewBencanaPelapor?id_bencana='.$this->input->post('id_bencana')));
 			}
 		}
-
-
 	}
  ?>

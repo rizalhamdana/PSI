@@ -52,12 +52,14 @@
                             <a href="<?= base_url('C_Bencana/tampilPelapor');?>" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Pelapor</a>
                         </li>
                     
-                    <?php } else if($this->session->userdata('status_pengguna')=='2'){?> 
+                    <?php } else if($this->session->userdata('status_pengguna')=='2'){
+                        $id_pengguna=$this->session->userdata('id_pengguna');
+                        ?> 
                      <li style="padding: 70px 0 0;">
                         <a href="<?= base_url('C_PelaporBencana/index');?>" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Dashboard</a>
                     </li>
                     <li>
-                        <a href="#" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Profil</a>
+                        <a href="<?= base_url('C_Users/editDataPelapor?id_pengguna='.$id_pengguna);?>" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Profil</a>
                     </li>
                     <?php } ?>
                     

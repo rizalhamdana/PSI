@@ -25,13 +25,13 @@
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Tambah Pelapor</h4> 
+                        <h4 class="page-title">Profil</h4> 
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <ol class="breadcrumb">
-                            <li><a href="<?= base_url('C_Bencana/index');?>">Dashboard</a></li>
-                            <li><a href="<?= base_url('C_Bencana/tampilPelapor');?>">Pelapor</a></li>
-                            <li class="active">Tambah Pelapor</li>
+                            <li><a href="">Dashboard</a></li>
+                            <li><a href="">Pelapor</a></li>
+                            <li class="active">Profile</li>
                         </ol>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -65,12 +65,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-md-12">Password</label>
-                                    <div class="col-md-12">    
-                                        <input type="password" value="<?= $pelapor->nama_pengguna;?> class="form-control form-control-line">
-                                    </div>
-                                </div>
+                             
                                 <div class="form-group">
                                     <div class="col-sm-12">
                                         <button class="btn btn-success">Edit Data</button>
