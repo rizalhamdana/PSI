@@ -17,7 +17,10 @@
 			<div class="row">
 				<?php foreach ($result as $bencana) {?>
 					<div class="col-md-4 white-box" style="margin: 10px 10px;">
-						<h3 class="text-center"><a href="<?php 	echo base_url('C_PelaporBencana/viewBencanaPelapor?id_bencana=').$bencana->id_bencana; ?>" style="text-decoration: none;"><?php echo $bencana->nama_bencana; ?></a></h3>
+						<h3 class="text-center"><a href="<?php 	echo base_url('C_PelaporBencana/viewBencanaPelapor?id_bencana=').$bencana->id_bencana; ?>" style="text-decoration: none;"><?php echo $bencana->nama_bencana; ?></a>
+						</h3>
+						<p class="text-center"><?= $bencana->nama_wilayah;?></p>
+						<p class="text-center"><?= $bencana->tanggal_bencana;?></p>
 							
 					</div>
 				<?php } ?>		

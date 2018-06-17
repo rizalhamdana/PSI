@@ -42,7 +42,10 @@
                         <div class="col-md-4">
                         <div class="white-box">
                             <div class="caption">
-                                <h3 class="text-center"><a href="<?= base_url('C_Bencana/bukaDetailBencana?id_bencana='.$disaster->id_bencana);?>"><?= $disaster->nama_bencana?></a></h3>
+                                <h3 class="text-center"><a href="<?= base_url('C_Bencana/bukaDetailBencana?id_bencana='.$disaster->id_bencana);?>"><?= $disaster->nama_bencana?></a>
+                                </h3>
+                                <p class="text-center"><?= $disaster->nama_wilayah; ?></p>
+                                <p class="text-center"><?=$disaster->tanggal_bencana;?></p>
                             </div>
                         </div>
                         </div>

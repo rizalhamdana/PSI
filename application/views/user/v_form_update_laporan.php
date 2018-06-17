@@ -45,7 +45,8 @@
  						<textarea name="lokasi"  cols="30" rows="10" class="form-control"></textarea>
  					</div>
  					<div class="row-input">
- 						<input type="submit" class="btn btn-primary">
+ 						<input type="submit" class="btn btn-primary">&nbsp
+ 						<a class="btn btn-danger" href="<?= base_url('C_PelaporBencana/viewBencanaPelapor?id_bencana='.$id_bencana);?>">Cancel</a>
  					</div>
  				</form>
  				

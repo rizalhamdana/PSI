@@ -11,7 +11,7 @@
  </style>
  <body>
 
- 	<div class="container">
+ 	<div class="container" style="margin-top:50px; margin-bottom: 50px;  ">
  		<div class="row">
  			<div class="col col-md-6 col-md-offset-3">
  				<h1 class="text-center">Input Laporan Kerusakan</h1>
@@ -32,18 +32,19 @@
  					</div>
  					<div class="row-input">
  						<p>Persentase Kerusakan Komponen Struktur Bangunan</p>
- 						<input type="text" class="form-control" name="komponenStruktur">
+ 						<input type="number" class="form-control" name="komponenStruktur">
  					</div>
  					<div class="row-input">
  						<p>Persentase Kerusakan Komponen Penunjang Bangunan</p>
- 						<input type="text" class="form-control" name="komponenPenunjang">
+ 						<input type="number" class="form-control" name="komponenPenunjang">
  					</div>
  					<div class="row-input">
  						<p>Lokasi</p>
  						<textarea name="lokasi"  cols="30" rows="10" class="form-control"></textarea>
  					</div>
  					<div class="row-input">
- 						<input type="submit" class="btn btn-primary">
+ 						<input type="submit" class="btn btn-primary">&nbsp
+ 						<a href="<?= base_url('C_PelaporBencana/viewBencanaPelapor?id_bencana='.$id_bencana)?>" class="btn btn-danger">Cancel</a>
  					</div>
  				</form>
  				

@@ -61,7 +61,7 @@
                                                     <?php endif ?>
                                                 <?php endforeach ?>
                                                 <td>
-                                                    <a href="<?php echo base_url('C_Users/EditDataPelapor?id_pengguna=').$user->id_pengguna; ?>" class="btn btn-success">Edit Data</a> &nbsp &nbsp 
+                                                
                                                     <a href="<?php echo base_url('C_Users/deleteUserPelapor?id_pengguna=').$user->id_pengguna;?>" class="btn btn-danger">Hapus</a>
                                                 </td>
                                             </tr>

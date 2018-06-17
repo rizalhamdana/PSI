@@ -37,8 +37,9 @@ class C_Users extends CI_Controller
 					redirect('C_PelaporBencana');
 				}
 				
-			}	else{
-				redirect('C_Users');
+			}else{
+				$pesanSalah="Username atau Password anda salah";
+				$this->load->view('user/v_login',compact('pesanSalah'));
 			}
 		}else{
 			redirect('C_Bencana');
@@ -65,6 +66,7 @@ class C_Users extends CI_Controller
 				'status_pengguna'=>$this->input->post('status_pengguna'),
 				'id_wilayah'=>$this->input->post('id_wilayah')
 			);
+			//echo $dataInput['password'];
 			$this->user->insertNewUser($dataInput);
 			redirect('C_Bencana/tampilPelapor');
 		}

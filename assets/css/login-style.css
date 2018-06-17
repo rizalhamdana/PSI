@@ -1,0 +1,47 @@
+.cover-login{
+		margin-top: 100px; 
+		background-color:white; 
+		padding: 100px 30px;
+		height: 500px;
+		
+	}
+	.btn-login{
+		background-color: #4286f4;
+		border-color: #4286f4; 
+		border-radius: 0;
+	}
+	.btn-login:hover{
+		background-color: #324159;
+		border-color: #324159; 
+
+	}
+	.cover-side-login{
+		padding: 50px 50px; 
+		background-color:rgba(66,134,244,1);
+		color: white;
+	}
+	form.login input[type="text"], form.login input[type="password"]
+{
+    width: 100%;
+    margin: 0;
+    padding: 5px 10px;
+    background: 0;
+    border: 0;
+    border-bottom: 1px solid #d5d9e0;
+    outline: 0;
+    font-style:;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    outline: 0;
+}
+#alert{
+		display: block;
+		background-color: pink; 
+		height: 30px; 
+		padding: 5px 5px;
+		border-radius: 3px;
+		margin-bottom: 20px;
+		font-size: 13px;
+}

@@ -43,15 +43,23 @@
                     <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span class="hide-menu">Navigation</span></h3>
                 </div>
                 <ul class="nav" id="side-menu">
+                    
+                    <?php if ($this->session->userdata('status_pengguna')=='1'){ ?>
                     <li style="padding: 70px 0 0;">
                         <a href="<?= base_url('C_Bencana/index');?>" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Dashboard</a>
                     </li>
-                    <?php if ($this->session->userdata('status_pengguna')=='1'): ?>
                         <li>
-                        <a href="<?= base_url('C_Bencana/tampilPelapor');?>" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Pelapor</a>
-                    </li>
+                            <a href="<?= base_url('C_Bencana/tampilPelapor');?>" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Pelapor</a>
+                        </li>
                     
-                    <?php endif ?>
+                    <?php } else if($this->session->userdata('status_pengguna')=='2'){?> 
+                     <li style="padding: 70px 0 0;">
+                        <a href="<?= base_url('C_PelaporBencana/index');?>" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Profil</a>
+                    </li>
+                    <?php } ?>
                     
 					<!--
                     <li>

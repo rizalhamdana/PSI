@@ -10,8 +10,8 @@ class M_Bencana extends CI_Model {
 	}
 
 	function getBencana() {
-		$result = $this->db->get('bencana'); 
-
+		$result = $this->db->join('wilayah','bencana.id_wilayah=wilayah.id_wilayah')
+							->get('bencana'); 
 		if($result->num_rows()>0){
 			return $result->result();
 		}else{
@@ -37,7 +37,8 @@ class M_Bencana extends CI_Model {
 	}
 
 	function getBencanaPelapor($id_wilayah){
-		$result=$this->db->where('id_wilayah',$id_wilayah)
+		$result=$this->db->where('bencana.id_wilayah',$id_wilayah)
+						->join('wilayah','wilayah.id_wilayah=bencana.id_wilayah')
 						->get('bencana');
 		if($result->num_rows()>0){
 			return $result->result();
