@@ -71,7 +71,7 @@
 				       						labels: <?php echo json_encode($jenis_bencana)?>,
 				       						datasets:[{
 				           						data: <?php echo json_encode($jumlahBencana);?> ,
-				            					backgroundColor:'rgba(255,99,132,1)',
+				            					backgroundColor:'rgba(54, 162, 235)',
 				           						
 				            					borderWidth: 1
 				        					}]
