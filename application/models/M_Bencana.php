@@ -31,6 +31,7 @@ class M_Bencana extends CI_Model {
 
 	function namaBencana($id_bencana) {
 		$result = $this->db->where('id_bencana', $id_bencana)
+							->join('wilayah','bencana.id_wilayah=wilayah.id_wilayah')
 							->limit(1)
 						   ->get('bencana');
 		return $result->result();

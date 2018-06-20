@@ -18,6 +18,7 @@
 						<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 col-md-offset-4 text-center">
                         	<h4 class="page-title"><?= $bencana->nama_bencana; ?></h4> 
                         	<p><?php echo $bencana->tanggal_bencana;?></p>
+                        	<p><?php echo $bencana->nama_wilayah;?></p>
                    		</div>
 					<?php endforeach ?>
 				</div>

@@ -45,6 +45,17 @@ class M_Chart extends CI_Model
 			return array();
 		}
 	}
+	function getDataLineChartTahunan(){
+		$query=$this->db->query("select count(*) as jumlah, YEAR(tanggal_bencana) as 'tahun' from bencana group by YEAR(tanggal_bencana)");
+		if($query->num_rows()>0){
+			foreach($query->result() as $data){
+				$hasil[]=$data;
+			}
+			return $hasil;
+		}else{
+			return array();
+		}
+	}
 }
 
  ?>

@@ -20,8 +20,9 @@ class C_Bencana extends CI_Controller
 		if($this->session->has_userdata('username')){
 			$bencana=$this->bencana->getBencana();
 			$dataChart=$this->chart->getDataChartdJenisBencana();
+			$dataLineChartTahunan=$this->chart->getDataLineChartTahunan();
 			//print_r($dataChart);
-			$this->load->view('user/v_dashboard_bencana', compact('bencana','dataChart'));			
+			$this->load->view('user/v_dashboard_bencana', compact('bencana','dataChart','dataLineChartTahunan'));			
 		}else{
 			redirect('C_Users');
 		}

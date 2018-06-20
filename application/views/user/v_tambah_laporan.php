@@ -15,12 +15,12 @@
 		<div id="page-wrapper">
 			<div class="container-fluid">
 				<div class="row bg-title">
-				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title">Input Laporan Kerusakan</h4> 
-                 </div>
-			</div>
-			<div class="row">
-				<div class="white-box">
+					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    	<h4 class="page-title">Input Laporan Kerusakan</h4> 
+                 	</div>
+				</div>
+				<div class="row">
+					<div class="white-box">
 					<form action="<?= base_url('C_PelaporBencana/tambahLaporan')?>" method="POST" class="form-horizontal form-material">
  					<input type="hidden" name="id_bencana" value="<?=$id_bencana?>">
  					<input type="hidden" name="id_wilayah" value="<?=$this->session->userdata('id_wilayah')?>">

@@ -70,6 +70,7 @@
 				   						data: {
 				       						labels: <?php echo json_encode($jenis_bencana)?>,
 				       						datasets:[{
+                                                label:"Jumlah Bencana",
 				           						data: <?php echo json_encode($jumlahBencana);?> ,
 				            					backgroundColor:'rgba(54, 162, 235)',
 				           						
@@ -89,6 +90,40 @@
 									});
 								</script>
 				   			</div>
+                        </div>
+                        <?php 
+                            foreach ($dataLineChartTahunan as $dataLineChart) {
+                                $tahunan[]=$dataLineChart->tahun;
+                                $jumlahBencanaPerTahun[]= $dataLineChart->jumlah;
+                            }
+
+                        ?>
+                        <div class="white-box">
+                            <h3 class="box-title">Bencana Per Tahun</h3>
+                            <div class="line-chart">
+                                <canvas width="13" height="3" id="myLineChart"></canvas>
+                                <script>
+                                    var ctx = document.getElementById('myLineChart').getContext('2d');
+                                    var chart = new Chart(ctx, {
+                                        // The type of chart we want to create
+                                        type: 'line',
+
+                                        // The data for our dataset
+                                        data: {
+                                            labels: <?php echo json_encode($tahunan)?>,
+                                            datasets: [{
+                                                label: "Jumlah Bencana",
+                                                backgroundColor: 'rgb(255, 99, 132)',
+                                                borderColor: 'rgb(255, 99, 132)',
+                                                data: <?php echo json_encode($jumlahBencanaPerTahun);?>,
+                                            }]
+                                        },
+
+                                        // Configuration options go here
+                                        options: {}
+                                    });
+                                </script>
+                            </div>
                         </div>
                     </div>
                 </div>
