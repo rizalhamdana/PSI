@@ -118,8 +118,11 @@ class M_SCPK extends CI_Model
 			$hasilSemua[]=$hasilRingan;
 			//$hasilSemua=array_merge($hasilRingan,$hasilSedang);
 			$max=0;
+			//print_r($hasilBerat);
+			//print_r($hasilRingan);
+			//print_r($hasilSedang);
 			foreach ($hasilSemua as $key) {
-				if($key['kategori']=='TINGGI'&& $key['nilai']>$max){
+				if($key['kategori']=='TINGGI'&& $key['nilai']>=$max){
 					$jenis_kerusakan=$key['jenis'];
 					$max=$key['nilai'];
 				}

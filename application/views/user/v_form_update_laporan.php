@@ -23,7 +23,7 @@
 				</div>
 				<div class="row">
 					<div class="white-box">
-						<form action="<?= base_url('C_PelaporBencana/ubahLaporan/'.$id_bencana.'?id_laporan='.$id_laporan)?>" method="POST" class="form-horizontal form-material">
+						<form action="<?= base_url('C_PelaporBencana/ubahLaporan/'.$id_bencana.'?id_laporan='.$id_laporan)?>" method="POST" class="form-horizontal form-material" name="formUpdateLaporan" onsubmit="return validateForm()">
  							<input type="hidden" name="id_bencana" value="<?=$id_bencana?>">
  							<input type="hidden" name="id_wilayah" value="<?=$this->session->userdata('id_wilayah')?>">
  							<input type="hidden" name="id_pengguna" value="<?=$this->session->userdata('id_pengguna');?>">
@@ -39,15 +39,17 @@
  							</div>
  							<div class="row-input">
  								<p>Persentase Kerusakan Komponen Struktur Bangunan</p>
- 								<input type="text" class="form-control form-control-line" name="komponenStruktur">
+ 								<p id="alertStruktur" style="font-size: 14; color:red;"></p>
+ 								<input type="text" class="form-control form-control-line" name="komponenStruktur" value="<?php echo $hasil->persen_rusak_struktur; ?>">
  							</div>
  							<div class="row-input">
  								<p>Persentase Kerusakan Komponen Penunjang Bangunan</p>
- 								<input type="text" class="form-control form-control-line" name="komponenPenunjang">
+ 								<p id="alertPenunjang" style="font-size: 14; color:red;"></p>
+ 								<input type="text" class="form-control form-control-line" name="komponenPenunjang" value="<?php echo $hasil->persen_rusak_penunjang; ?>">
  							</div>
  							<div class="row-input">
  								<p>Lokasi</p>
- 								<textarea name="lokasi"  cols="30" rows="10" class="form-control form-control-line"></textarea>
+ 								<textarea name="lokasi" class="form-control form-control-line"><?php echo $hasil->lokasi;?></textarea>
  							</div>
  							<div class="row-input">
  								<input type="submit" class="btn btn-primary">&nbsp
@@ -59,5 +61,21 @@
 			</div>
 		</div>
 	</div>
- 	
+ 	<script>
+ 		function validateForm(){
+			document.getElementById('alertPenunjang').innerHTML="";
+			document.getElementById('alertStruktur').innerHTML="";
+			var persenStruktur=document.forms["formUpdateLaporan"]['komponenStruktur'].value;
+			var persenPenunjang=document.forms["formUpdateLaporan"]['komponenPenunjang'].value;
+			if(persenStruktur<0||persenStruktur>100){
+				//alert('Persentase harus di antara 0 dan 100');
+				document.getElementById('alertStruktur').innerHTML="*Persentase kerusakan komponen struktur harus di antara 0 dan 100";
+				return false;
+			}
+			if(persenPenunjang<0||persenPenunjang>100){
+				document.getElementById('alertPenunjang').innerHTML="*Persentase kerusakan komponen penunjang harus di antara 0 dan 100";
+				return false;
+			}
+		}
+ 	</script>
  </body>

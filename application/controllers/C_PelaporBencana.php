@@ -59,7 +59,9 @@
 								'objek'=>$this->input->post('objek'),
 								'tanggal_laporan'=>$this->input->post('tanggal_laporan'),
 								'id_kerusakan'=>$jenisKerusakan,
-								'lokasi'=>$this->input->post('lokasi')
+								'lokasi'=>$this->input->post('lokasi'),
+								'persen_rusak_struktur'=>$persenStruktur,
+								'persen_rusak_penunjang'=>$persenPenunjang
 						 );
 				//print_r($input);
 				$berhasil=$this->laporan->insertLaporan($input);
@@ -99,7 +101,11 @@
 					'objek'=>$this->input->post('objek'),
 					'tanggal_laporan'=>$this->input->post('tanggal_laporan'),
 					'lokasi'=>$this->input->post('lokasi'),
-					'id_kerusakan'=>$jenisKerusakan
+					'id_kerusakan'=>$jenisKerusakan,
+					'lokasi'=>$this->input->post('lokasi'),
+					'persen_rusak_struktur'=>$persenStruktur,
+					'persen_rusak_penunjang'=>$persenPenunjang
+
 				);
 				$this->laporan->updateLaporan($input,$id_laporan);
 				redirect(base_url('C_PelaporBencana/viewBencanaPelapor?id_bencana='.$this->input->post('id_bencana')));

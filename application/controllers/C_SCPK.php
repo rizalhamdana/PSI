@@ -17,7 +17,7 @@
 			
 		}
 		function index(){
-			echo $this->scpk->hitungFuzzy(30,60);
+			echo $this->scpk->hitungFuzzy(40,30);
 		}
 
 		
