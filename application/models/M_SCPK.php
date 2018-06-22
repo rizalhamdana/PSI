@@ -3,8 +3,10 @@
  */
 class M_SCPK extends CI_Model
 {
-	
-		static $rules=Array();
+		static $hasilSemua=Array();
+		static $rulesBerat=Array();
+		static $rulesSedang=Array();
+		static $rulesRingan=Array();
 		function __construct()
 		{
 			parent::__construct();			
@@ -14,32 +16,88 @@ class M_SCPK extends CI_Model
 			//set_rules("kondisi1","kondisi2","hasil")
 			//maksud komen diatas adalah if(kondisi1 AND kondisi2) THEN hasil;
 
-			$rules[0]=new Rules_scpk();
-			$rules[0]->set_rules('BERAT','BERAT','BERAT');
+			$rulesBerat[0]=new Rules_scpk();
+			$rulesBerat[0]->set_rules('BERAT','BERAT','TINGGI');
 
-			$rules[1]=new Rules_scpk();
-			$rules[1]->set_rules('BERAT','SEDANG','BERAT');
+			$rulesBerat[1]=new Rules_scpk();
+			$rulesBerat[1]->set_rules('BERAT','SEDANG','TINGGI');
 
-			$rules[2]=new Rules_scpk();
-			$rules[2]->set_rules('BERAT','RINGAN','BERAT');
+			$rulesBerat[2]=new Rules_scpk();
+			$rulesBerat[2]->set_rules('BERAT','RINGAN','TINGGI');
 
-			$rules[3]=new Rules_scpk();
-			$rules[3]->set_rules('SEDANG','BERAT','BERAT');
+			$rulesBerat[3]=new Rules_scpk();
+			$rulesBerat[3]->set_rules('SEDANG','BERAT','RENDAH');
 
-			$rules[4]=new Rules_scpk();
-			$rules[4]->set_rules('SEDANG','SEDANG','RINGAN');
+			$rulesBerat[4]=new Rules_scpk();
+			$rulesBerat[4]->set_rules('SEDANG','SEDANG','RENDAH');
 
-			$rules[5]=new Rules_scpk();
-			$rules[5]->set_rules('SEDANG','RINGAN','RINGAN');
+			$rulesBerat[5]=new Rules_scpk();
+			$rulesBerat[5]->set_rules('SEDANG','RINGAN','RENDAH');
 
-			$rules[6]=new Rules_scpk();
-			$rules[6]->set_rules('RINGAN','BERAT','RINGAN');
+			$rulesBerat[6]=new Rules_scpk();
+			$rulesBerat[6]->set_rules('RINGAN','BERAT','RENDAH');
 
-			$rules[7]=new Rules_scpk();
-			$rules[7]->set_rules('RINGAN','SEDANG','RINGAN');
+			$rulesBerat[7]=new Rules_scpk();
+			$rulesBerat[7]->set_rules('RINGAN','SEDANG','RENDAH');
 
-			$rules[8]=new Rules_scpk();
-			$rules[8]->set_rules('RINGAN','RINGAN','RINGAN');
+			$rulesBerat[8]=new Rules_scpk();
+			$rulesBerat[8]->set_rules('RINGAN','RINGAN','RENDAH');
+
+//--------------------------------------------------------------------------------------
+			$rulesSedang[0]=new Rules_scpk();
+			$rulesSedang[0]->set_rules('BERAT','BERAT','RENDAH');
+
+			$rulesSedang[1]=new Rules_scpk();
+			$rulesSedang[1]->set_rules('BERAT','SEDANG','RENDAH');
+
+			$rulesSedang[2]=new Rules_scpk();
+			$rulesSedang[2]->set_rules('BERAT','RINGAN','RENDAH');
+
+			$rulesSedang[3]=new Rules_scpk();
+			$rulesSedang[3]->set_rules('SEDANG','BERAT','TINGGI');
+
+			$rulesSedang[4]=new Rules_scpk();
+			$rulesSedang[4]->set_rules('SEDANG','SEDANG','TINGGI');
+
+			$rulesSedang[5]=new Rules_scpk();
+			$rulesSedang[5]->set_rules('SEDANG','RINGAN','TINGGI');
+
+			$rulesSedang[6]=new Rules_scpk();
+			$rulesSedang[6]->set_rules('RINGAN','BERAT','RENDAH');
+
+			$rulesSedang[7]=new Rules_scpk();
+			$rulesSedang[7]->set_rules('RINGAN','SEDANG','RENDAH');
+
+			$rulesSedang[8]=new Rules_scpk();
+			$rulesSedang[8]->set_rules('RINGAN','RINGAN','RENDAH');
+
+			//-----------------------------------------------------------------
+			$rulesRingan[0]=new Rules_scpk();
+			$rulesRingan[0]->set_rules('BERAT','BERAT','RENDAH');
+
+			$rulesRingan[1]=new Rules_scpk();
+			$rulesRingan[1]->set_rules('BERAT','SEDANG','RENDAH');
+
+			$rulesRingan[2]=new Rules_scpk();
+			$rulesRingan[2]->set_rules('BERAT','RINGAN','RENDAH');
+
+			$rulesRingan[3]=new Rules_scpk();
+			$rulesRingan[3]->set_rules('SEDANG','BERAT','RENDAH');
+
+			$rulesRingan[4]=new Rules_scpk();
+			$rulesRingan[4]->set_rules('SEDANG','SEDANG','RENDAH');
+
+			$rulesRingan[5]=new Rules_scpk();
+			$rulesRingan[5]->set_rules('SEDANG','RINGAN','RENDAH');
+
+			$rulesRingan[6]=new Rules_scpk();
+			$rulesRingan[6]->set_rules('RINGAN','BERAT','TINGGI');
+
+			$rulesRingan[7]=new Rules_scpk();
+			$rulesRingan[7]->set_rules('RINGAN','SEDANG','TINGGI');
+
+			$rulesRingan[8]=new Rules_scpk();
+			$rulesRingan[8]->set_rules('RINGAN','RINGAN','TINGGI');
 
 			//cari nilai keanggotaan komponen struktur
 			$nilaiAnggotaStrukRingan=$this->nil_anggota_ringan($inputStruktur);
@@ -52,12 +110,31 @@ class M_SCPK extends CI_Model
 			$nilaiAnggotaPenunBerat=$this->nil_anggota_berat($inputPenunjang);
 			
 
-			$hasil=$this->hitungAlfadanZ($nilaiAnggotaStrukRingan,$nilaiAnggotaStrukSedang,$nilaiAnggotaStrukBerat,$nilaiAnggotaPenunRingan,$nilaiAnggotaPenunSedang,$nilaiAnggotaPenunBerat,$rules);
-			
-			return $hasil;
+			$hasilBerat=$this->hitungAlfadanZ($nilaiAnggotaStrukRingan,$nilaiAnggotaStrukSedang,$nilaiAnggotaStrukBerat,$nilaiAnggotaPenunRingan,$nilaiAnggotaPenunSedang,$nilaiAnggotaPenunBerat,$rulesBerat,'berat');
+			$hasilSedang=$this->hitungAlfadanZ($nilaiAnggotaStrukRingan,$nilaiAnggotaStrukSedang,$nilaiAnggotaStrukBerat,$nilaiAnggotaPenunRingan,$nilaiAnggotaPenunSedang,$nilaiAnggotaPenunBerat,$rulesSedang,'sedang');
+			$hasilRingan=$this->hitungAlfadanZ($nilaiAnggotaStrukRingan,$nilaiAnggotaStrukSedang,$nilaiAnggotaStrukBerat,$nilaiAnggotaPenunRingan,$nilaiAnggotaPenunSedang,$nilaiAnggotaPenunBerat,$rulesRingan,'ringan');
+			$hasilSemua[]=$hasilBerat;
+			$hasilSemua[]=$hasilSedang;
+			$hasilSemua[]=$hasilRingan;
+			//$hasilSemua=array_merge($hasilRingan,$hasilSedang);
+			$max=0;
+			foreach ($hasilSemua as $key) {
+				if($key['kategori']=='TINGGI'&& $key['nilai']>$max){
+					$jenis_kerusakan=$key['jenis'];
+					$max=$key['nilai'];
+				}
+			}
+			if($jenis_kerusakan=='ringan'){
+				return 1;
+			}else if($jenis_kerusakan=='sedang'){
+				return 2;
+			}else{
+				return 3;
+			}
+			//return $hasilSemua;
 		}
 
-		function hitungAlfadanZ($nilaiStrukRingan,$nilaiStrukSedang,$nilaiStrukBerat,$nilaiPenunRingan,$nilaiPenunSedang,$nilaiPenunBerat,$aturan){
+		function hitungAlfadanZ($nilaiStrukRingan,$nilaiStrukSedang,$nilaiStrukBerat,$nilaiPenunRingan,$nilaiPenunSedang,$nilaiPenunBerat,$aturan,$jenis){
 			
 			$alpha=Array();
 			$z=Array();
@@ -83,7 +160,7 @@ class M_SCPK extends CI_Model
 			}
 			//perintah di bawah ini digunakan untuk mencari nilai z masing-masing alpha
 			for($i=0;$i<9;$i++){
-				if($aturan[$i]->hasil=="BERAT"){
+				if($aturan[$i]->hasil=="TINGGI"){
 					if($alpha[$i]==1){
 						$z[]=75;
 					}else if($alpha[$i]==0){
@@ -92,7 +169,7 @@ class M_SCPK extends CI_Model
 						$z[]=((75-25)*$alpha[$i])+25;
 					}
 				}
-				else if ($aturan[$i]->hasil=="RINGAN"){
+				else if ($aturan[$i]->hasil=="RENDAH"){
 					if($alpha[$i]==1){
 						$z[]=25;
 					}else if($alpha[$i]==0){
@@ -103,7 +180,8 @@ class M_SCPK extends CI_Model
 				}
 
 			}
-			
+			//print_r($alpha);
+			//echo "<br>";
 			$sumZAlpha=0;
 			for($i=0;$i<9;$i++){
 				$sumZAlpha+=($z[$i]*$alpha[$i]);
@@ -111,33 +189,35 @@ class M_SCPK extends CI_Model
 			$sumAlpha=array_sum($alpha);
 
 			$nilaiZTsukamoto=$sumZAlpha/$sumAlpha;
-			$hasilFuzzy=$this->cariJenisKerusakan($nilaiZTsukamoto);
+			$hasilFuzzy=$this->cariJenisKerusakan($nilaiZTsukamoto,$jenis);
 
 			return $hasilFuzzy;
 
 		}
 
-		function cariJenisKerusakan($z){
-			$nilaiKerusakanRingan=0;
-			$nilaiKerusakanBerat=0;
+		function cariJenisKerusakan($z,$jenis){
+			$nilaiKerusakanRendah=0;
+			$nilaiKerusakanTinggi=0;
 			if($z<=25){
-				$nilaiKerusakanRingan=1;
-				$nilaiKerusakanBerat=0;
+				$nilaiKerusakanRendah=1;
+				$nilaiKerusakanTinggi=0;
 			}else if($z>=75){
-				$nilaiKerusakanRingan=0;
-				$nilaiKerusakanBerat=1;
+				$nilaiKerusakanRendah=0;
+				$nilaiKerusakanTinggi=1;
 			}else{
-				$nilaiKerusakanRingan=(75-$z)/(75-25);
-				$nilaiKerusakanBerat=($z-25)/(75-25);
+				$nilaiKerusakanRendah=(75-$z)/(75-25);
+				$nilaiKerusakanTinggi=($z-25)/(75-25);
 			}
 
 
-			if($nilaiKerusakanRingan>$nilaiKerusakanBerat){
-				//echo "Rusak Ringan";
-				return 1;
+			if($nilaiKerusakanRendah>$nilaiKerusakanTinggi){
+				
+				$hasil=array('kategori'=>'RENDAH','nilai'=>$nilaiKerusakanRendah,'jenis'=>$jenis);
+				return $hasil;
 			}else{
-				//echo "Rusak Berat";
-				return 3;
+				$hasil= array('kategori'=>'TINGGI','nilai' => $nilaiKerusakanTinggi,'jenis'=>$jenis );
+				
+				return $hasil;
 			}
 
 		}
