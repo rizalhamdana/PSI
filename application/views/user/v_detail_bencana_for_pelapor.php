@@ -44,7 +44,14 @@
 										<td><?php echo $laporan_user->objek ?></td>
 										<td><?php echo $laporan_user->jenis_kerusakan ?></td>
 										<td><?php echo $laporan_user->tanggal_laporan ?></td>
-										<td><a href="<?= base_url('C_PelaporBencana/ubahLaporan/'.$laporan_user->id_bencana.'?id_laporan='.$laporan_user->id_laporan)?>" class="btn btn-warning">Ubah</a>&nbsp <a href="<?= base_url('C_PelaporBencana/hapusLaporan/'.$laporan_user->id_bencana. '?id_laporan='.$laporan_user->id_laporan)?>" class="btn btn-danger">Hapus</a></td>
+										<td>
+											<a href="<?= base_url('C_PelaporBencana/ubahLaporan/'.$laporan_user->id_bencana.'?id_laporan='.$laporan_user->id_laporan)?>" class="btn btn-warning">Ubah</a>&nbsp 
+
+											<!--<a href="<?= base_url('C_PelaporBencana/hapusLaporan/'.$laporan_user->id_bencana. '?id_laporan='.$laporan_user->id_laporan)?>" class="btn btn-danger">Hapus</a>-->
+
+											<a href="javascript:;" data-link_hapus="<?=base_url('C_PelaporBencana/hapusLaporan/'.$laporan_user->id_bencana. '?id_laporan='.$laporan_user->id_laporan);?>" data-toggle="modal" data-target="#modal-hapus-laporan"><button class="btn btn-danger">Hapus</button></a>
+
+										</td>
 									</tr>
 								<?php } ?>
 				
@@ -59,5 +66,37 @@
 			</div>
 		</div>
 	</div>
+	<div class="modal fade" id="modal-hapus-laporan" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content" align="center">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Hapus Laporan</h4>
+        </div>
+        <div class="modal-body">
+          <p>Apakah anda yakin ingin menghapus Laporan ini?</p>
+        </div>
+        <div class="modal-footer">
+            <a class="btn btn-danger" id="hapusButton">Ya</a>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+        </div>
+      </div>
+    </div>
+    <script>
+    	$(document).ready(function() {
+        // Untuk sunting
+       $('#modal-hapus-laporan').on('show.bs.modal', function (event) {
+            var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
+            var modal          = $(this)
+ 
+            // Isi nilai pada field
+          
+            //modal.find('#lanjutPinjam').html(div.data('batal_lanjut_pinjam'));
+            
+            modal.find('#hapusButton').attr('href',div.data('link_hapus'));
+            
+        });    
+    });
+    </script>
 </body>
 </html>

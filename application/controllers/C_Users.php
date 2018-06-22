@@ -83,13 +83,13 @@ class C_Users extends CI_Controller
 			$dataInput=array(
 				'nama_pengguna'=>$this->input->post('nama_pengguna'),
 				'username'=>$this->input->post('username'),
-				'password'=>md5($this->input->post('password')),
-				'status_pengguna'=>$this->input->post('status_pengguna'),
+				//'password'=>md5($this->input->post('password')),
+				//'status_pengguna'=>$this->input->post('status_pengguna'),
 				'id_wilayah'=>$this->input->post('id_wilayah'),
-				'id_pengguna'=>$this->input->post('id_pengguna')
+				'id_pengguna'=>$this->session->userdata('id_pengguna')
 			);
 			$this->user->UpdateDataPelapor($dataInput);
-			redirect('C_Bencana/tampilPelapor');
+			redirect('C_PelaporBencana/index');
 		}
 		
 	}
