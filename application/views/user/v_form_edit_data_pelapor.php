@@ -27,6 +27,9 @@
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                         <h4 class="page-title">Profil</h4> 
                     </div>
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 col-md-offset-8 col-lg-offset-9 col-sm-offset-8">
+                        
+                    </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <div class="row">
@@ -58,7 +61,10 @@
                                         </select>
                                     </div>
                                 </div>
-                             
+                                <div class="form-group">
+                                    <a href="<?php echo base_url('C_Users/gantiPassword?id_pengguna='.$pelapor->id_pengguna) ?>" class="col-md-12">Ganti Password</a>
+                                </div>
+                                
                                 <div class="form-group">
                                     <div class="col-sm-12">
                                         <button class="btn btn-success">Edit Data</button>

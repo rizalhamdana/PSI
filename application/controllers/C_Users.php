@@ -99,6 +99,23 @@ class C_Users extends CI_Controller
 		$hapusPelapor = $this->user->hapusPelapor($id_pelapor);
 		redirect('C_Bencana/tampilPelapor');
 	}
+	public function gantiPassword(){
+		$id_pengguna=$this->input->get('id_pengguna');
+
+		if(!$_POST){
+			$data['pengguna']=$this->db->where('id_pengguna',$id_pengguna)
+							->limit('1')
+							->get('pengguna')
+							->row();
+			$this->load->view('user/v_form_ganti_password',$data);
+		}else{
+			$dataInput=array('password'=>$this->input->post('password_baru'));
+			$this->db->where('id_pengguna',$this->input->post('id_pengguna'))
+					->update('pengguna',$dataInput);
+
+			redirect('C_Users/EditDataPelapor?id_pengguna='.$this->session->userdata('id_pengguna'));
+		}
+	}
 }
 
  ?>

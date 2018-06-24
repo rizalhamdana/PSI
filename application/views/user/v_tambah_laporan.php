@@ -27,7 +27,7 @@
  					<input type="hidden" name="id_wilayah" value="<?=$this->session->userdata('id_wilayah')?>">
  					<input type="hidden" name="id_pengguna" value="<?=$this->session->userdata('id_pengguna');?>">
  					<input type="hidden" name="tanggal_laporan" value="<?php echo date('Y-m-d H:i:s');?>">
- 					<div class="row-input">
+ 					<div class="form-group">
  						<p style="font-weight: bolder;">Objek Kerusakan</p>
  						<select name="objek" id="" class="form-control form-control-line" required>
  							<option value="Rumah">Rumah</option>
@@ -36,21 +36,21 @@
  							<option value="Fasilitas Peribadatan">Fasilitas Peribadatan</option>
  						</select>
  					</div>
- 					<div class="row-input">
+ 					<div class="form-group">
  						<p style="font-weight: bolder">Persentase Kerusakan Komponen Struktur Bangunan</p>
  						<p id="alertStruktur" style="font-size: 14; color:red;"></p>
  						<input type="number" class="form-control form-control-line" name="komponenStruktur" required>
  					</div>
- 					<div class="row-input">
+ 					<div class="form-group">
  						<p style="font-weight: bolder">Persentase Kerusakan Komponen Penunjang Bangunan</p>
  						<p id="alertPenunjang" style="font-size: 14; color:red;"></p>
  						<input type="number" class="form-control form-control-line" name="komponenPenunjang" required>
  					</div>
- 					<div class="row-input">
+ 					<div class="form-group">
  						<p style="font-weight: bolder;">Lokasi</p>
  						<textarea name="lokasi" class="form-control form-control-line" required></textarea>
  					</div>
- 					<div class="row-input">
+ 					<div class="form-group">
  						<input type="submit" class="btn btn-primary">&nbsp
  						<a href="<?= base_url('C_PelaporBencana/viewBencanaPelapor?id_bencana='.$id_bencana)?>" class="btn btn-danger">Cancel</a>
  					</div>
