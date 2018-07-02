@@ -13,92 +13,18 @@ class M_SCPK extends CI_Model
 		}
 
 		function hitungFuzzy($inputStruktur,$inputPenunjang){
-			//set_rules("kondisi1","kondisi2","hasil")
-			//maksud komen diatas adalah if(kondisi1 AND kondisi2) THEN hasil;
+			
+			
+			$rulesBerat=$this->db->where('id_kerusakan',3)
+									->get('rules_kerusakan')
+									->result();
 
-			$rulesBerat[0]=new Rules_scpk();
-			$rulesBerat[0]->set_rules('BERAT','BERAT','TINGGI');
-
-			$rulesBerat[1]=new Rules_scpk();
-			$rulesBerat[1]->set_rules('BERAT','SEDANG','TINGGI');
-
-			$rulesBerat[2]=new Rules_scpk();
-			$rulesBerat[2]->set_rules('BERAT','RINGAN','TINGGI');
-
-			$rulesBerat[3]=new Rules_scpk();
-			$rulesBerat[3]->set_rules('SEDANG','BERAT','RENDAH');
-
-			$rulesBerat[4]=new Rules_scpk();
-			$rulesBerat[4]->set_rules('SEDANG','SEDANG','RENDAH');
-
-			$rulesBerat[5]=new Rules_scpk();
-			$rulesBerat[5]->set_rules('SEDANG','RINGAN','RENDAH');
-
-			$rulesBerat[6]=new Rules_scpk();
-			$rulesBerat[6]->set_rules('RINGAN','BERAT','RENDAH');
-
-			$rulesBerat[7]=new Rules_scpk();
-			$rulesBerat[7]->set_rules('RINGAN','SEDANG','RENDAH');
-
-			$rulesBerat[8]=new Rules_scpk();
-			$rulesBerat[8]->set_rules('RINGAN','RINGAN','RENDAH');
-
-//--------------------------------------------------------------------------------------
-			$rulesSedang[0]=new Rules_scpk();
-			$rulesSedang[0]->set_rules('BERAT','BERAT','RENDAH');
-
-			$rulesSedang[1]=new Rules_scpk();
-			$rulesSedang[1]->set_rules('BERAT','SEDANG','RENDAH');
-
-			$rulesSedang[2]=new Rules_scpk();
-			$rulesSedang[2]->set_rules('BERAT','RINGAN','RENDAH');
-
-			$rulesSedang[3]=new Rules_scpk();
-			$rulesSedang[3]->set_rules('SEDANG','BERAT','TINGGI');
-
-			$rulesSedang[4]=new Rules_scpk();
-			$rulesSedang[4]->set_rules('SEDANG','SEDANG','TINGGI');
-
-			$rulesSedang[5]=new Rules_scpk();
-			$rulesSedang[5]->set_rules('SEDANG','RINGAN','TINGGI');
-
-			$rulesSedang[6]=new Rules_scpk();
-			$rulesSedang[6]->set_rules('RINGAN','BERAT','RENDAH');
-
-			$rulesSedang[7]=new Rules_scpk();
-			$rulesSedang[7]->set_rules('RINGAN','SEDANG','RENDAH');
-
-			$rulesSedang[8]=new Rules_scpk();
-			$rulesSedang[8]->set_rules('RINGAN','RINGAN','RENDAH');
-
-			//-----------------------------------------------------------------
-			$rulesRingan[0]=new Rules_scpk();
-			$rulesRingan[0]->set_rules('BERAT','BERAT','RENDAH');
-
-			$rulesRingan[1]=new Rules_scpk();
-			$rulesRingan[1]->set_rules('BERAT','SEDANG','RENDAH');
-
-			$rulesRingan[2]=new Rules_scpk();
-			$rulesRingan[2]->set_rules('BERAT','RINGAN','RENDAH');
-
-			$rulesRingan[3]=new Rules_scpk();
-			$rulesRingan[3]->set_rules('SEDANG','BERAT','RENDAH');
-
-			$rulesRingan[4]=new Rules_scpk();
-			$rulesRingan[4]->set_rules('SEDANG','SEDANG','RENDAH');
-
-			$rulesRingan[5]=new Rules_scpk();
-			$rulesRingan[5]->set_rules('SEDANG','RINGAN','RENDAH');
-
-			$rulesRingan[6]=new Rules_scpk();
-			$rulesRingan[6]->set_rules('RINGAN','BERAT','TINGGI');
-
-			$rulesRingan[7]=new Rules_scpk();
-			$rulesRingan[7]->set_rules('RINGAN','SEDANG','TINGGI');
-
-			$rulesRingan[8]=new Rules_scpk();
-			$rulesRingan[8]->set_rules('RINGAN','RINGAN','TINGGI');
-
+			$rulesSedang=$this->db->where('id_kerusakan',2)
+									->get('rules_kerusakan')
+									->result();
+			$rulesRingan=$this->db->where('id_kerusakan',1)
+									->get('rules_kerusakan')
+									->result();
 			//cari nilai keanggotaan komponen struktur
 			$nilaiAnggotaStrukRingan=$this->nil_anggota_ringan($inputStruktur);
 			$nilaiAnggotaStrukSedang=$this->nil_anggota_sedang($inputStruktur);
