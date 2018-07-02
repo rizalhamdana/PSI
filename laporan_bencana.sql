@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2018 at 03:07 PM
+-- Generation Time: Jul 02, 2018 at 01:59 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -86,17 +86,6 @@ INSERT INTO `kerusakan` (`id_kerusakan`, `jenis_kerusakan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kerusakanspesifikasi`
---
-
-CREATE TABLE `kerusakanspesifikasi` (
-  `id_spesifikasi` int(11) NOT NULL,
-  `id_kerusakan` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `laporan`
 --
 
@@ -118,7 +107,10 @@ CREATE TABLE `laporan` (
 --
 
 INSERT INTO `laporan` (`id_pengguna`, `id_wilayah`, `id_bencana`, `id_kerusakan`, `objek`, `tanggal_laporan`, `id_laporan`, `lokasi`, `persen_rusak_struktur`, `persen_rusak_penunjang`) VALUES
-(7, 2, 21, 3, 'Rumah', '2018-06-22 20:13:50', 77, 'sask', 70, 10);
+(12, 2, 21, 2, 'Rumah', '2018-06-26 00:30:49', 1, 'asksaklaskl', 40, 50),
+(12, 2, 21, 3, 'Rumah', '2018-06-26 00:31:36', 2, 'sadsad', 70, 80),
+(12, 2, 21, 1, 'Rumah', '2018-07-02 18:30:26', 3, 'asjsja', 30, 10),
+(12, 2, 21, 2, 'Fasilitas Peribadatan', '2018-07-02 18:58:48', 4, 'dasds', 60, 40);
 
 -- --------------------------------------------------------
 
@@ -141,19 +133,54 @@ CREATE TABLE `pengguna` (
 
 INSERT INTO `pengguna` (`id_pengguna`, `username`, `password`, `nama_pengguna`, `status_pengguna`, `id_wilayah`) VALUES
 (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'administrator', 1, 1),
-(5, 'sptandi', '827ccb0eea8a706c4c34a16891f84e7b', 'Saputro Andi', 2, 2),
-(7, 'rizalhamdan', '9ce389a88d98f56fa50e777e60c4ad9f', 'Rizal Hamdan Arigusti', 2, 2);
+(12, 'rizalhamdan', '9ce389a88d98f56fa50e777e60c4ad9f', 'Rizal Hamdan Arigusti', 2, 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `spesifikasi`
+-- Table structure for table `rules_kerusakan`
 --
 
-CREATE TABLE `spesifikasi` (
-  `id_spesifikasi` int(11) NOT NULL,
-  `nama_spesifikasi` int(11) NOT NULL
+CREATE TABLE `rules_kerusakan` (
+  `id_rules` int(11) NOT NULL,
+  `kondisi1` varchar(50) NOT NULL,
+  `kondisi2` varchar(50) NOT NULL,
+  `hasil` varchar(50) NOT NULL,
+  `id_kerusakan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `rules_kerusakan`
+--
+
+INSERT INTO `rules_kerusakan` (`id_rules`, `kondisi1`, `kondisi2`, `hasil`, `id_kerusakan`) VALUES
+(55, 'BERAT', 'BERAT', 'RENDAH', 1),
+(56, 'BERAT', 'SEDANG', 'RENDAH', 1),
+(57, 'BERAT', 'RINGAN', 'RENDAH', 1),
+(58, 'SEDANG', 'BERAT', 'RENDAH', 1),
+(59, 'SEDANG', 'SEDANG', 'RENDAH', 1),
+(60, 'SEDANG', 'RINGAN', 'RENDAH', 1),
+(61, 'RINGAN', 'BERAT', 'TINGGI', 1),
+(62, 'RINGAN', 'SEDANG', 'TINGGI', 1),
+(63, 'RINGAN', 'RINGAN', 'TINGGI', 1),
+(64, 'BERAT', 'BERAT', 'RENDAH', 2),
+(65, 'BERAT', 'SEDANG', 'RENDAH', 2),
+(66, 'BERAT', 'RINGAN', 'RENDAH', 2),
+(67, 'SEDANG', 'BERAT', 'TINGGI', 2),
+(68, 'SEDANG', 'SEDANG', 'TINGGI', 2),
+(69, 'SEDANG', 'RINGAN', 'TINGGI', 2),
+(70, 'RINGAN', 'BERAT', 'RENDAH', 2),
+(71, 'RINGAN', 'SEDANG', 'RENDAH', 2),
+(72, 'RINGAN', 'RINGAN', 'RENDAH', 2),
+(73, 'BERAT', 'BERAT', 'TINGGI', 3),
+(74, 'BERAT', 'SEDANG', 'TINGGI', 3),
+(75, 'BERAT', 'RINGAN', 'TINGGI', 3),
+(76, 'SEDANG', 'BERAT', 'RENDAH', 3),
+(77, 'SEDANG', 'SEDANG', 'RENDAH', 3),
+(78, 'SEDANG', 'RINGAN', 'RENDAH', 3),
+(79, 'RINGAN', 'BERAT', 'RENDAH', 3),
+(80, 'RINGAN', 'SEDANG', 'RENDAH', 3),
+(81, 'RINGAN', 'RINGAN', 'RENDAH', 3);
 
 -- --------------------------------------------------------
 
@@ -194,13 +221,6 @@ ALTER TABLE `kerusakan`
   ADD PRIMARY KEY (`id_kerusakan`);
 
 --
--- Indexes for table `kerusakanspesifikasi`
---
-ALTER TABLE `kerusakanspesifikasi`
-  ADD KEY `id_spesifikasi` (`id_spesifikasi`),
-  ADD KEY `id_kerusakan` (`id_kerusakan`);
-
---
 -- Indexes for table `laporan`
 --
 ALTER TABLE `laporan`
@@ -218,10 +238,11 @@ ALTER TABLE `pengguna`
   ADD KEY `id_wilayah` (`id_wilayah`);
 
 --
--- Indexes for table `spesifikasi`
+-- Indexes for table `rules_kerusakan`
 --
-ALTER TABLE `spesifikasi`
-  ADD PRIMARY KEY (`id_spesifikasi`);
+ALTER TABLE `rules_kerusakan`
+  ADD PRIMARY KEY (`id_rules`),
+  ADD KEY `id_kerusakan` (`id_kerusakan`);
 
 --
 -- Indexes for table `wilayah`
@@ -242,12 +263,17 @@ ALTER TABLE `bencana`
 -- AUTO_INCREMENT for table `laporan`
 --
 ALTER TABLE `laporan`
-  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `rules_kerusakan`
+--
+ALTER TABLE `rules_kerusakan`
+  MODIFY `id_rules` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 --
 -- AUTO_INCREMENT for table `wilayah`
 --
@@ -262,13 +288,6 @@ ALTER TABLE `wilayah`
 --
 ALTER TABLE `bencana`
   ADD CONSTRAINT `bencana_ibfk_1` FOREIGN KEY (`id_wilayah`) REFERENCES `wilayah` (`id_wilayah`);
-
---
--- Constraints for table `kerusakanspesifikasi`
---
-ALTER TABLE `kerusakanspesifikasi`
-  ADD CONSTRAINT `kerusakanspesifikasi_ibfk_1` FOREIGN KEY (`id_spesifikasi`) REFERENCES `spesifikasi` (`id_spesifikasi`),
-  ADD CONSTRAINT `kerusakanspesifikasi_ibfk_2` FOREIGN KEY (`id_kerusakan`) REFERENCES `kerusakan` (`id_kerusakan`);
 
 --
 -- Constraints for table `laporan`
