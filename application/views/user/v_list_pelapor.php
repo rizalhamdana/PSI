@@ -3,6 +3,10 @@
 <html>
 <head>
     <?php $this->load->view('user/header'); ?>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 </head>
 <body class="fix-header">
     <!-- ============================================================== -->
@@ -40,7 +44,7 @@
                     <div class="col-md-12">
                         <div class="white-box">
                             <div class="table-responsive">
-                                <table class="table">
+                                <table class="display" id="example">
                                     <thead>
                                         <tr>
                                             <th>Nama</th>
@@ -112,6 +116,12 @@
             
         });    
     });
+
+
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+    
     </script>
 </body>
 </html>

@@ -3,6 +3,9 @@
 <html>
 <head>
     <?php $this->load->view('user/header'); ?>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 </head>
 <body class="fix-header">
     <!-- ============================================================== -->
@@ -141,7 +144,7 @@
                     	<div class="white-box">
 							<h3 class="box-title">Data Kerusakan</h3>
                             <div class="table-responsive">
-                                <table class="table">
+                                <table class="display" id="example" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>Pelapor</th>
@@ -150,16 +153,16 @@
                                             <th>Tanggal Laporan</th>
                                         </tr>
                                     </thead>
-                                    <?php foreach ($laporan as $lap) {?>
                                     <tbody>
+                                    <?php foreach ($laporan as $lap) {?>
                                         <tr>
                                           <td><?= $lap->nama_pengguna ?></td>
 						                  <td><?= $lap->objek ?></td>
 						                  <td><?= $lap->jenis_kerusakan ?></td>
 						                  <td><?= $lap->tanggal_laporan?></td>
                                         </tr>
-                                    </tbody>
                                 	<?php } ?>
+                                	</tbody>
                                 </table> 
 						</div>
 					</div>
@@ -172,5 +175,10 @@
         <!-- ============================================================== -->
     </div>
     <!-- /#wrapper -->
+    <script>
+	$(document).ready(function() {
+    	$('#example').DataTable();
+	} );
+	</script>
 </body>
 </html>
