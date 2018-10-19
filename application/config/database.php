@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'hostname' => 'raspberrypi.local',
 	'username' => 'root',
 	'password' => '',
 	'database' => 'laporan_bencana',

@@ -75,7 +75,7 @@ class C_Bencana extends CI_Controller
 		$laporan = $this->bencana->getLaporanBencana($id_bencana);
 		$this->load->view('user/v_dashboard_pelapor', compact('search', 'laporan','dataChart','dataBarChart'));
 	}
-
+	
 }
 
 ?>

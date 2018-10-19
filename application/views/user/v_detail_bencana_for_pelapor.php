@@ -14,7 +14,7 @@
 	}
 </style>
 <body class="fix-header">
-	 <?php $this->load->view('menu_nav') ?>
+	 <?php $this->load->view('menu_nav');?>
 	<div id="wrapper">
 		<div id="page-wrapper">
 			<div class="container-fluid">
@@ -34,7 +34,7 @@
 							<table class="display" id="example">	
 								<thead class="table-cell dark-navy" style="">	
 									<tr>	
-										<th scope="col">Lokasi</th>
+										<th scope="col">Wilayah</th>
 										<th scope="col">Objek Kerusakan</th>
 										<th scope="col">Jenis Kerusakan</th>
 										<th scope="col">Tanggal dan Waktu Lapor</th>
@@ -54,7 +54,7 @@
 
 											<!--<a href="<?= base_url('C_PelaporBencana/hapusLaporan/'.$laporan_user->id_bencana. '?id_laporan='.$laporan_user->id_laporan)?>" class="btn btn-danger">Hapus</a>-->
 
-											<a href="javascript:;" data-link_hapus="<?=base_url('C_PelaporBencana/hapusLaporan/'.$laporan_user->id_bencana. '?id_laporan='.$laporan_user->id_laporan);?>" data-toggle="modal" data-target="#modal-hapus-laporan"><button class="btn btn-danger">Hapus</button></a>
+											<a href="<?=base_url('C_PelaporBencana/hapusLaporan/'.$laporan_user->id_bencana. '?id_laporan='.$laporan_user->id_laporan);?>"><button class="btn btn-danger">Hapus</button></a>
 
 										</td>
 									</tr>
@@ -82,7 +82,7 @@
           <p>Apakah anda yakin ingin menghapus Laporan ini?</p>
         </div>
         <div class="modal-footer">
-            <a class="btn btn-danger" id="hapusButton">Ya</a>
+            <a class="btn btn-danger" id="hapusButton" href>Ya</a>
           <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
         </div>
       </div>
@@ -98,14 +98,17 @@
           
             //modal.find('#lanjutPinjam').html(div.data('batal_lanjut_pinjam'));
             
-            modal.find('#hapusButton').attr('href',div.data('link_hapus'));
+            modal.find('#hapusButton').attr('href',div.data('linkhapus'));
             
         });    
     });
 
     $(document).ready(function() {
         $('#example').DataTable();
-    } );
+    }
+    
+    );
+
     </script>
 </body>
 </html>

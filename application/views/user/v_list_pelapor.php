@@ -67,7 +67,7 @@
                                                 <td>
                                                 
                                                     <!--<a href="<?php echo base_url('C_Users/deleteUserPelapor?id_pengguna=').$user->id_pengguna;?>" class="btn btn-danger">Hapus</a>-->
-                                                    <a href="javascript:;" data-link_hapus="<?=base_url('C_Users/deleteUserPelapor?id_pengguna=').$user->id_pengguna;?>" data-toggle="modal" data-target="#modal-hapus-pelapor"><button class="btn btn-danger">Hapus</button></a>
+                                                    <a href="<?=base_url('C_Users/deleteUserPelapor?id_pengguna=').$user->id_pengguna;?>"><button class="btn btn-danger">Hapus</button></a>
                                                 </td>
                                             </tr>
                                         <?php endif ?>
